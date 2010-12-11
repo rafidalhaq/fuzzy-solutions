@@ -1,0 +1,46 @@
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparersTests.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparersTests.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparers.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\bin\Debug\Moq.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\bin\Debug\xunit.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparers.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\bin\Debug\Moq.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\bin\Debug\Moq.xml
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\obj\Debug\FuzzyComparersTests.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparersTests\obj\Debug\FuzzyComparersTests.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparersTests.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparersTests.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparers.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparers.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\bin\Debug\Moq.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\bin\Debug\Moq.xml
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\obj\Debug\FuzzyComparersTests.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparersTests\obj\Debug\FuzzyComparersTests.pdb
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparersTests.dll
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparersTests.pdb
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparers.dll
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzyComparers.pdb
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\bin\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\bin\Debug\Moq.pdb
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\bin\Debug\Moq.xml
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\obj\Debug\ResolveAssemblyReference.cache
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\obj\Debug\FuzzyComparersTests.dll
+C:\Main documents\FuzzyLogic\FuzzyComparersTests\obj\Debug\FuzzyComparersTests.pdb
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\bin\Debug\FuzzyComparersTests.dll
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\bin\Debug\FuzzyComparersTests.pdb
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\bin\Debug\FuzzyComparers.dll
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\bin\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\bin\Debug\FuzzyComparers.pdb
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\bin\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\bin\Debug\Moq.pdb
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\bin\Debug\Moq.xml
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\obj\Debug\ResolveAssemblyReference.cache
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\obj\Debug\FuzzyComparersTests.dll
+C:\Main documents\FuzzyLogic\Tests\LogicTests\FuzzyComparersTests\obj\Debug\FuzzyComparersTests.pdb

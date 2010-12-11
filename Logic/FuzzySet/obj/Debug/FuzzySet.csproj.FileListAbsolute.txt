@@ -1,0 +1,5 @@
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySet\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySet\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySet\obj\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySet\obj\Debug\FuzzySet.pdb

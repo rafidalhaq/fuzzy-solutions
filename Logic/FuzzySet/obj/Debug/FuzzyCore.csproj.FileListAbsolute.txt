@@ -1,0 +1,20 @@
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySet\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySet\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySet\obj\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySet\obj\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySet\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySet\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySet\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySet\obj\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySet\obj\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\FuzzySet\bin\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\FuzzySet\bin\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\FuzzySet\obj\Debug\ResolveAssemblyReference.cache
+C:\Main documents\FuzzyLogic\FuzzySet\obj\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\FuzzySet\obj\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\Logic\FuzzySet\bin\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\Logic\FuzzySet\bin\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\Logic\FuzzySet\obj\Debug\ResolveAssemblyReference.cache
+C:\Main documents\FuzzyLogic\Logic\FuzzySet\obj\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\Logic\FuzzySet\obj\Debug\FuzzySet.pdb

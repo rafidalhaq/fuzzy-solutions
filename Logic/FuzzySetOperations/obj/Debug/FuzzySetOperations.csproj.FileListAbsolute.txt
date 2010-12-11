@@ -1,0 +1,28 @@
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySetOperations.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySetOperations.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySetOperations\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySetOperations\obj\Debug\FuzzySetOperations.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzySetOperations\obj\Debug\FuzzySetOperations.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySetOperations.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySetOperations.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySetOperations\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySetOperations\obj\Debug\FuzzySetOperations.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzySetOperations\obj\Debug\FuzzySetOperations.pdb
+C:\Main documents\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySetOperations.dll
+C:\Main documents\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySetOperations.pdb
+C:\Main documents\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\FuzzySetOperations\bin\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\FuzzySetOperations\obj\Debug\ResolveAssemblyReference.cache
+C:\Main documents\FuzzyLogic\FuzzySetOperations\obj\Debug\FuzzySetOperations.dll
+C:\Main documents\FuzzyLogic\FuzzySetOperations\obj\Debug\FuzzySetOperations.pdb
+C:\Main documents\FuzzyLogic\Logic\FuzzySetOperations\bin\Debug\FuzzySetOperations.dll
+C:\Main documents\FuzzyLogic\Logic\FuzzySetOperations\bin\Debug\FuzzySetOperations.pdb
+C:\Main documents\FuzzyLogic\Logic\FuzzySetOperations\bin\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\Logic\FuzzySetOperations\bin\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\Logic\FuzzySetOperations\obj\Debug\ResolveAssemblyReference.cache
+C:\Main documents\FuzzyLogic\Logic\FuzzySetOperations\obj\Debug\FuzzySetOperations.dll
+C:\Main documents\FuzzyLogic\Logic\FuzzySetOperations\obj\Debug\FuzzySetOperations.pdb

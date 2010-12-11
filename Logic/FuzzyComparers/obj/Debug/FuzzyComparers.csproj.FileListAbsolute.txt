@@ -1,0 +1,28 @@
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparers\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzyComparers.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzyComparers.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparers\obj\Debug\FuzzyComparers.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\FuzzyComparers\obj\Debug\FuzzyComparers.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzyComparers.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzyComparers.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparers\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparers\obj\Debug\FuzzyComparers.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\FuzzyComparers\obj\Debug\FuzzyComparers.pdb
+C:\Main documents\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzyComparers.dll
+C:\Main documents\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzyComparers.pdb
+C:\Main documents\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\FuzzyComparers\bin\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\FuzzyComparers\obj\Debug\ResolveAssemblyReference.cache
+C:\Main documents\FuzzyLogic\FuzzyComparers\obj\Debug\FuzzyComparers.dll
+C:\Main documents\FuzzyLogic\FuzzyComparers\obj\Debug\FuzzyComparers.pdb
+C:\Main documents\FuzzyLogic\Logic\FuzzyComparers\bin\Debug\FuzzyComparers.dll
+C:\Main documents\FuzzyLogic\Logic\FuzzyComparers\bin\Debug\FuzzyComparers.pdb
+C:\Main documents\FuzzyLogic\Logic\FuzzyComparers\bin\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\Logic\FuzzyComparers\bin\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\Logic\FuzzyComparers\obj\Debug\ResolveAssemblyReference.cache
+C:\Main documents\FuzzyLogic\Logic\FuzzyComparers\obj\Debug\FuzzyComparers.dll
+C:\Main documents\FuzzyLogic\Logic\FuzzyComparers\obj\Debug\FuzzyComparers.pdb

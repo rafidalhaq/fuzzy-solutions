@@ -1,0 +1,28 @@
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\TestStubs\bin\Debug\TestStubs.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\TestStubs\bin\Debug\TestStubs.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\TestStubs\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\TestStubs\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\TestStubs\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\TestStubs\obj\Debug\TestStubs.dll
+C:\Users\Shtaket\Desktop\FuzzyLogic\FuzzyLogic\TestStubs\obj\Debug\TestStubs.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\TestStubs\bin\Debug\TestStubs.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\TestStubs\bin\Debug\TestStubs.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\TestStubs\bin\Debug\FuzzySet.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\TestStubs\bin\Debug\FuzzySet.pdb
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\TestStubs\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\TestStubs\obj\Debug\TestStubs.dll
+C:\Users\Shtaket\Desktop\  Shtaket когда случается Отстой\FuzzyLogic\TestStubs\obj\Debug\TestStubs.pdb
+C:\Main documents\FuzzyLogic\TestStubs\bin\Debug\TestStubs.dll
+C:\Main documents\FuzzyLogic\TestStubs\bin\Debug\TestStubs.pdb
+C:\Main documents\FuzzyLogic\TestStubs\bin\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\TestStubs\bin\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\TestStubs\obj\Debug\ResolveAssemblyReference.cache
+C:\Main documents\FuzzyLogic\TestStubs\obj\Debug\TestStubs.dll
+C:\Main documents\FuzzyLogic\TestStubs\obj\Debug\TestStubs.pdb
+C:\Main documents\FuzzyLogic\Tests\LogicTests\TestStubs\bin\Debug\TestStubs.dll
+C:\Main documents\FuzzyLogic\Tests\LogicTests\TestStubs\bin\Debug\TestStubs.pdb
+C:\Main documents\FuzzyLogic\Tests\LogicTests\TestStubs\bin\Debug\FuzzySet.dll
+C:\Main documents\FuzzyLogic\Tests\LogicTests\TestStubs\bin\Debug\FuzzySet.pdb
+C:\Main documents\FuzzyLogic\Tests\LogicTests\TestStubs\obj\Debug\ResolveAssemblyReference.cache
+C:\Main documents\FuzzyLogic\Tests\LogicTests\TestStubs\obj\Debug\TestStubs.dll
+C:\Main documents\FuzzyLogic\Tests\LogicTests\TestStubs\obj\Debug\TestStubs.pdb
