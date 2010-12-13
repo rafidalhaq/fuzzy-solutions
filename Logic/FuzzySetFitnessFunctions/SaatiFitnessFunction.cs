@@ -42,9 +42,11 @@ namespace IGS.Fuzzy.FitnessFunctions
                 .Select(columnSum => 1/columnSum).ToList();
 
             for (var i = 0; i < freeRow.Count; i++)
+            {
                 freeRow[i] /= freeRow.Sum();
 
-            var s = Weights;
+                Weights.Add(ParentFuzzySet.UniversalItems[i], freeRow[i]);
+            }
         }
 
         private Matrix BuildSaatiMatrix()

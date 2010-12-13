@@ -1,3 +1,4 @@
+using System;
 using IGS.Fuzzy.Comparers;
 using IGS.Fuzzy.Core;
 using IGS.Fuzzy.FitnessFunctions;
@@ -39,7 +40,10 @@ namespace FitnessFunctionsTests
                 .Add(4)
                 .SetFitnessFunction(saati);
 
-            Assert.Equal(2.44, fuzzySet.GetWeight(1));
+            Assert.Equal(0.69, Math.Round(fuzzySet.GetWeight(1), 2));
+            Assert.Equal(0.16, Math.Round(fuzzySet.GetWeight(2), 2));
+            Assert.Equal(0.09, Math.Round(fuzzySet.GetWeight(3), 2));
+            Assert.Equal(0.06, Math.Round(fuzzySet.GetWeight(4), 2));
         }
     }
 }
