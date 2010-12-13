@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using IGS.Fuzzy.Comparers;
@@ -8,11 +7,13 @@ namespace IGS.Fuzzy.FitnessFunctions
 {
     public class OrderingFitnessFunction<T> : FitnessFunctionWithFitnessListBuilding<T>
     {
+        private readonly IDictionary<FuzzyCompareGradation, double> gradations =
+            new Dictionary<FuzzyCompareGradation, double>();
+
         private readonly OrderingComparer<T> orderer;
-        private readonly IDictionary<FuzzyCompareGradation, double> gradations = new Dictionary<FuzzyCompareGradation, double>();
 
         public OrderingFitnessFunction(IFuzzyComparer<T> fuzzyComparer)
-            :base(fuzzyComparer)
+            : base(fuzzyComparer)
         {
             orderer = new OrderingComparer<T>(fuzzyComparer);
 
@@ -36,7 +37,7 @@ namespace IGS.Fuzzy.FitnessFunctions
         {
             Weights.Clear();
 
-            var universalItemsCount = ParentFuzzySet.UniversalItems.Count();
+            int universalItemsCount = ParentFuzzySet.UniversalItems.Count();
 
             if (universalItemsCount == 0)
                 return;
@@ -50,8 +51,10 @@ namespace IGS.Fuzzy.FitnessFunctions
             if (universalItemsCount == 1)
                 return;
 
-            for (var i = 1; i < universalItemsCount; i++)
-                Weights.Add(orderedUniversalItems[i], CalculateWeightFor(orderedUniversalItems[i], orderedUniversalItems[i - 1], universalItemsCount));
+            for (int i = 1; i < universalItemsCount; i++)
+                Weights.Add(orderedUniversalItems[i],
+                            CalculateWeightFor(orderedUniversalItems[i], orderedUniversalItems[i - 1],
+                                               universalItemsCount));
 
             RebuildingRequired = false;
         }
@@ -62,8 +65,8 @@ namespace IGS.Fuzzy.FitnessFunctions
 
             double result;
 
-            if(gradations.TryGetValue(fuzzyCompareResult, out result) == false)  
-                    throw new FitnessFunctionException("Множество универсальных элементов не было упорядочено корректно");
+            if (gradations.TryGetValue(fuzzyCompareResult, out result) == false)
+                throw new FitnessFunctionException("Множество универсальных элементов не было упорядочено корректно");
 
             result /= universalItemsCount - 1;
 

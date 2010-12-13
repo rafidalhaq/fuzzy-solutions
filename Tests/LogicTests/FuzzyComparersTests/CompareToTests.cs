@@ -15,7 +15,8 @@ namespace FuzzyComparersTests
             fuzzyComparableItem1.Setup(x => x.FuzzyCompareTo(fuzzyComparableItem2.Object))
                 .Returns(FuzzyCompareGradation.LittleBitGreater);
 
-            Assert.Equal(FuzzyCompareGradation.LittleBitGreater, fuzzyComparableItem1.Object.FuzzyCompareTo(fuzzyComparableItem2.Object));
+            Assert.Equal(FuzzyCompareGradation.LittleBitGreater,
+                         fuzzyComparableItem1.Object.FuzzyCompareTo(fuzzyComparableItem2.Object));
         }
     }
 }

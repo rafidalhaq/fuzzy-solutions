@@ -13,6 +13,8 @@ namespace IGS.Fuzzy.FitnessFunctions
             this.fuzzyComparer = fuzzyComparer;
         }
 
+        #region IComparer<T> Members
+
         public int Compare(T x, T y)
         {
             FuzzyCompareGradation fuzzyCompareResult = fuzzyComparer.Compare(x, y);
@@ -25,5 +27,7 @@ namespace IGS.Fuzzy.FitnessFunctions
 
             return 1;
         }
+
+        #endregion
     }
 }

@@ -13,6 +13,8 @@ namespace IGS.Fuzzy.FitnessFunctions
             this.itemsWeights = itemsWeights;
         }
 
+        #region IFitnessFunction<T> Members
+
         public double Invoke(T item)
         {
             double value;
@@ -24,7 +26,12 @@ namespace IGS.Fuzzy.FitnessFunctions
                 "Функция соответствия не определена для элемента нечёткого множества, который был передан в качестве аргумента.");
         }
 
-        public FuzzySet<T> ParentSet { set{} }
+        public FuzzySet<T> ParentSet
+        {
+            set { }
+        }
+
+        #endregion
 
         public void OnUniversalItemsCollectionChanged(object sender, UniversalItemsEventArgs<T> universalItemsEventArgs)
         {

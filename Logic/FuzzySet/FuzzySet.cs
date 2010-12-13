@@ -6,19 +6,63 @@ namespace IGS.Fuzzy.Core
 {
     public class FuzzySet<T> : IEquatable<FuzzySet<T>>
     {
-        private readonly List<T> universalItems = new List<T>();
+        private readonly IList<T> universalItems;
         private IFitnessFunction<T> fitnessFunction;
+
+        private FuzzySet(FuzzySet<T> fuzzySet)
+        {
+            universalItems = fuzzySet.universalItems;
+        }
+
+        private FuzzySet()
+        {
+            universalItems = new List<T>();
+        }
+
+        public IList<T> UniversalItems
+        {
+            get { return universalItems; }
+        }
+
+        #region IEquatable<FuzzySet<T>> Members
+
+        public bool Equals(FuzzySet<T> other)
+        {
+            return ItemsEquals(other)
+                   && UniversalItems.All(universalItem => GetWeight(universalItem) == other.GetWeight(universalItem));
+        }
+
+        #endregion
+
         public event EventHandler<UniversalItemsEventArgs<T>> CollectionChanged;
+
+        /// <summary>
+        /// Создать нечёткое множество
+        /// </summary>
+        /// <returns>Нечёткое множество</returns>
+        public static FuzzySet<T> Instance()
+        {
+            return new FuzzySet<T>();
+        }
+
+        /// <summary>
+        /// Создать нечёткое множество на основании заданного универсального множества
+        /// </summary>
+        /// <param name="fuzzySet">Источник универсальных элементов</param>
+        /// <returns>Нечёткое множество</returns>
+        public static FuzzySet<T> Instance(FuzzySet<T> fuzzySet)
+        {
+            return new FuzzySet<T>(fuzzySet);
+        }
 
         public double GetWeight(T item)
         {
-            if(universalItems.Contains(item) == false)
-                throw new IndexOutOfRangeException("Универсальное множество не содержит элемента, для которого был запрошен вес");
+            if (UniversalItems.Contains(item) == false)
+                throw new IndexOutOfRangeException(
+                    "Универсальное множество не содержит элемента, для которого был запрошен вес");
 
             return fitnessFunction.Invoke(item);
         }
-        
-        public IEnumerable<T> UniversalItems { get { return universalItems; } }
 
         public FuzzySet<T> SetFitnessFunction(IFitnessFunction<T> func)
         {
@@ -34,15 +78,9 @@ namespace IGS.Fuzzy.Core
             return SetFitnessFunction(new FitnessFunction(func));
         }
 
-        public bool Equals(FuzzySet<T> other)
-        {
-            return ItemsEquals(other) 
-                && UniversalItems.All(universalItem => GetWeight(universalItem) == other.GetWeight(universalItem));
-        }
-
         public bool ItemsEquals(FuzzySet<T> other)
         {
-            if (universalItems.Count != other.UniversalItems.Count())
+            if (UniversalItems.Count() != other.UniversalItems.Count())
                 return false;
 
             if (UniversalItems.Any(universalItem => other.UniversalItems.Contains(universalItem) == false))
@@ -67,12 +105,12 @@ namespace IGS.Fuzzy.Core
 
         public FuzzySet<T> Add(FuzzySet<T> from)
         {
-            var collectionChanged = false;
+            bool collectionChanged = false;
 
-            foreach (var universalItem in from.universalItems)
+            foreach (T universalItem in from.UniversalItems)
                 collectionChanged = AddItem(universalItem);
 
-            if(collectionChanged)
+            if (collectionChanged)
                 InvokeCollectionChanged();
 
             return this;
@@ -80,34 +118,46 @@ namespace IGS.Fuzzy.Core
 
         private bool AddItem(T universalItem)
         {
-            if (universalItems.Contains(universalItem) == false)
+            if (UniversalItems.Contains(universalItem) == false)
             {
-                universalItems.Add(universalItem);
+                UniversalItems.Add(universalItem);
                 return true;
             }
 
             return false;
         }
 
+        public IFitnessFunction<T> GetFitnessFunction()
+        {
+            return fitnessFunction;
+        }
+
+        #region Nested type: FitnessFunction
+
         private class FitnessFunction : IFitnessFunction<T>
         {
-            private Func<T, double> Function { get; set; }
-
             public FitnessFunction(Func<T, double> func)
             {
-                Function  = func;
+                Function = func;
             }
+
+            private Func<T, double> Function { get; set; }
+
+            #region IFitnessFunction<T> Members
 
             public double Invoke(T item)
             {
                 return Function.Invoke(item);
             }
 
-            public FuzzySet<T> ParentSet { set { } }
-
-            public void OnUniversalItemsCollectionChanged(object sender, UniversalItemsEventArgs<T> universalItemsEventArgs)
+            public FuzzySet<T> ParentSet
             {
+                set { }
             }
+
+            #endregion
         }
+
+        #endregion
     }
 }

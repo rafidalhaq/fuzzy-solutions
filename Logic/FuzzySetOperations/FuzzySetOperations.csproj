@@ -40,16 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Inclusion\IInclusionOperation.cs" />
-    <Compile Include="Inclusion\SimpleInclusionOperation.cs" />
-    <Compile Include="Intersection\IIntersectionOperation.cs" />
+    <Compile Include="Binary\AlgebraicComposition\SimpleAlgebraicCompositionOperation.cs" />
+    <Compile Include="Binary\AlgebraicSum\SimpleAlgebraicSumOperation.cs" />
+    <Compile Include="Binary\Difference\SimpleDifferenceOperation.cs" />
+    <Compile Include="Binary\DisjunctiveSum\SimpleDisjunctiveSumOperation.cs" />
+    <Compile Include="Logical\ILogicalFuzzySetOperation.cs" />
+    <Compile Include="Logical\Inclusion\SimpleInclusionOperation.cs" />
+    <Compile Include="Binary\IBinaryFuzzySetOperation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Supplement\ISupplement.cs" />
-    <Compile Include="Supplement\SimpleSupplement.cs" />
-    <Compile Include="Union\IUnionOperation.cs" />
-    <Compile Include="Intersection\SimpleIntersectionOperation.cs" />
-    <Compile Include="SimpleUnionIntersectionOperationBase.cs" />
-    <Compile Include="Union\SimpleUnionOperation.cs" />
+    <Compile Include="Unary\IUnaryFuzzySetOperation.cs" />
+    <Compile Include="Unary\Supplement\SimpleSupplementOperation.cs" />
+    <Compile Include="Binary\Intersection\SimpleIntersectionOperation.cs" />
+    <Compile Include="Binary\SimpleBinaryOperationBase.cs" />
+    <Compile Include="Binary\Union\SimpleUnionOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FuzzySet\FuzzyCore.csproj">

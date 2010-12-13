@@ -3,9 +3,11 @@ using IGS.Fuzzy.Core;
 
 namespace IGS.Fuzzy.Comparers
 {
-    public class NativeComparer<T> : IFuzzyComparer<T> 
+    public class NativeComparer<T> : IFuzzyComparer<T>
         where T : IComparable<T>
     {
+        #region IFuzzyComparer<T> Members
+
         public FuzzyCompareGradation Compare(T first, T second)
         {
             switch (first.CompareTo(second))
@@ -18,5 +20,7 @@ namespace IGS.Fuzzy.Comparers
                     return FuzzyCompareGradation.Less;
             }
         }
+
+        #endregion
     }
 }

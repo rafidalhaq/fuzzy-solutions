@@ -1,13 +1,16 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
+using BusinessLogic.Matrix;
 using IGS.Fuzzy.Comparers;
 using IGS.Fuzzy.Core;
+using Processors;
 
 namespace IGS.Fuzzy.FitnessFunctions
 {
     public class SaatiFitnessFunction<T> : FitnessFunctionWithFitnessListBuilding<T>
     {
-        private readonly IDictionary<FuzzyCompareGradation, double> gradations = new Dictionary<FuzzyCompareGradation, double>();
+        private readonly IDictionary<FuzzyCompareGradation, double> gradations =
+            new Dictionary<FuzzyCompareGradation, double>();
 
         public SaatiFitnessFunction(IFuzzyComparer<T> comparer) : base(comparer)
         {
@@ -29,7 +32,37 @@ namespace IGS.Fuzzy.FitnessFunctions
 
         protected override void RebuildWeights()
         {
-            throw new NotImplementedException();
+            Weights.Clear();
+
+            var matrix = BuildSaatiMatrix();
+            var transposed = MatrixProcessor.GetTransposedMatrix(matrix);
+            
+            var freeRow = transposed.Lines
+                .Select(column => column.LineElements.Sum())
+                .Select(columnSum => 1/columnSum).ToList();
+
+            for (var i = 0; i < freeRow.Count; i++)
+                freeRow[i] /= freeRow.Sum();
+
+            var s = Weights;
+        }
+
+        private Matrix BuildSaatiMatrix()
+        {
+            var matrix = new Matrix();
+
+            foreach (var universalItem in ParentFuzzySet.UniversalItems)
+            {
+                T item = universalItem;
+                matrix.AddLine(new MatrixLine((from otherItem in ParentFuzzySet.UniversalItems
+                                               let fuzzyComparingResult = FuzzyComparer.Compare(item, otherItem)
+                                               select
+                                                   fuzzyComparingResult != FuzzyCompareGradation.Less
+                                                       ? gradations[fuzzyComparingResult]
+                                                       : 1/gradations[FuzzyComparer.Compare(otherItem, item)]).ToArray()));
+            }
+
+            return matrix;
         }
     }
 }

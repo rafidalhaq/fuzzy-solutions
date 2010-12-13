@@ -11,7 +11,7 @@ namespace FuzzySetTests
         [Fact]
         public void FuzySetHasOnlyUniques()
         {
-            var fuzzySet = new FuzzySet<int>();
+            FuzzySet<int> fuzzySet = FuzzySet<int>.Instance();
             fuzzySet
                 .Add(1)
                 .Add(1)
@@ -25,7 +25,7 @@ namespace FuzzySetTests
         [Fact]
         public void FuzySetMustGenerateEventWhenUniversalItemsCollectionIsChanging()
         {
-            var fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
+            FuzzySet<int> fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
 
             var subscriber = new Subscriber();
 
@@ -39,7 +39,7 @@ namespace FuzzySetTests
         [Fact]
         public void FuzySetShouldNotGenerateEventWhenUniversalItemsCollectionWasnNotChanged()
         {
-            var fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
+            FuzzySet<int> fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
 
             var subscriber = new Subscriber();
 
@@ -53,8 +53,8 @@ namespace FuzzySetTests
         [Fact]
         public void FuzySetMustGenerateEventOnceWhenRangeOfUniversalItemsWasAdded()
         {
-            var fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
-            var other = FuzzySetStubs
+            FuzzySet<int> fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
+            FuzzySet<int> other = FuzzySetStubs
                 .CreateSimpleIntFuzzySetWithDifferentUniversals()
                 .Add(14)
                 .Add(15)
@@ -72,7 +72,7 @@ namespace FuzzySetTests
         [Fact]
         public void TestFitnessFunction()
         {
-            var fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
+            FuzzySet<int> fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
 
             Assert.Equal(fuzzySet.GetWeight(1), 0.8);
             Assert.Equal(fuzzySet.GetWeight(2), 0.7);
@@ -81,7 +81,7 @@ namespace FuzzySetTests
         [Fact]
         public void FitnessFunctionMustThrowExceptionIfThereNoSuchElementInSet()
         {
-            var fuzzySet = new FuzzySet<string>();
+            FuzzySet<string> fuzzySet = FuzzySet<string>.Instance();
             const string universalItem = "exist";
 
             fuzzySet
@@ -104,8 +104,8 @@ namespace FuzzySetTests
         [Fact]
         public void ItemsEqualsTest()
         {
-            var fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
-            var other = FuzzySetStubs.CreateSimpleIntFuzzySet();
+            FuzzySet<int> fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
+            FuzzySet<int> other = FuzzySetStubs.CreateSimpleIntFuzzySet();
 
             other.SetFitnessFunction(x => 0);
 
@@ -129,21 +129,21 @@ namespace FuzzySetTests
                                              };
 
             // эквивалентное множество
-            var fuzzySet = new FuzzySet<int>();
+            FuzzySet<int> fuzzySet = FuzzySet<int>.Instance();
             fuzzySet
                 .Add(1)
                 .Add(2)
                 .SetFitnessFunction(function);
 
             // эквивалентное множество 
-            var fuzzySetEqual = new FuzzySet<int>();
+            FuzzySet<int> fuzzySetEqual = FuzzySet<int>.Instance();
             fuzzySetEqual
                 .Add(1)
                 .Add(2)
                 .SetFitnessFunction(function);
 
             // неэквивалентно, т.к. закон соответствия иной
-            var notEqual1 = new FuzzySet<int>();
+            FuzzySet<int> notEqual1 = FuzzySet<int>.Instance();
             notEqual1
                 .Add(1)
                 .Add(2)
@@ -161,12 +161,12 @@ namespace FuzzySetTests
                                         });
 
             // неэквивалентно, т.к. универсальное множество отличается количественно
-            var notEqual2 = new FuzzySet<int>();
+            FuzzySet<int> notEqual2 = FuzzySet<int>.Instance();
             notEqual2.Add(1)
                 .SetFitnessFunction(function);
 
             // неэквивалентно, т.к. универсальное множество отличается качественно
-            var notEqual3 = new FuzzySet<int>();
+            FuzzySet<int> notEqual3 = FuzzySet<int>.Instance();
             notEqual3
                 .Add(1)
                 .Add(3)
@@ -181,11 +181,11 @@ namespace FuzzySetTests
 
     public class Subscriber
     {
+        public int Invokes { get; private set; }
+
         public void Handler(object sender, UniversalItemsEventArgs<int> e)
         {
             Invokes++;
         }
-
-        public int Invokes { get; private set; }
     }
 }

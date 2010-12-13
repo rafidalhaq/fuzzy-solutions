@@ -6,17 +6,23 @@ namespace IGS.Fuzzy.Comparers
 {
     public class ExpertListBasedComparer<T> : IFuzzyComparer<T>
     {
-        private readonly IDictionary<Tuple<T, T>, FuzzyCompareGradation> pairToValue = new Dictionary<Tuple<T, T>, FuzzyCompareGradation>();
+        private readonly IDictionary<Tuple<T, T>, FuzzyCompareGradation> pairToValue =
+            new Dictionary<Tuple<T, T>, FuzzyCompareGradation>();
+
+        #region IFuzzyComparer<T> Members
 
         public FuzzyCompareGradation Compare(T first, T second)
         {
             FuzzyCompareGradation value;
 
-            if(pairToValue.TryGetValue(new Tuple<T, T>(first, second), out value))
+            if (pairToValue.TryGetValue(new Tuple<T, T>(first, second), out value))
                 return value;
 
-            throw new FuzzyComparerException("Невозможно сравнить элементы на основании оценок эксперта, т.к. соответствие не было задано");
+            throw new FuzzyComparerException(
+                "Невозможно сравнить элементы на основании оценок эксперта, т.к. соответствие не было задано");
         }
+
+        #endregion
 
         public void AddPair(T first, T second, FuzzyCompareGradation fuzzyCompareGradation)
         {

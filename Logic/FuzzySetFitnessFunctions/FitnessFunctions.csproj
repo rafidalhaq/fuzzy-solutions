@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Matrix">
+      <HintPath>..\..\..\NumericalMethods\Processors\bin\Debug\Matrix.dll</HintPath>
+    </Reference>
+    <Reference Include="Processors">
+      <HintPath>..\..\..\NumericalMethods\Processors\bin\Debug\Processors.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

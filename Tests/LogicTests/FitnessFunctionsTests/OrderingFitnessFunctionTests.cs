@@ -7,12 +7,13 @@ namespace FitnessFunctionsTests
 {
     public class OrderingFitnessFunctionTests
     {
-        private readonly OrderingFitnessFunction<TestItem> orderingFitnessFunction = new OrderingFitnessFunction<TestItem>(new ElementsComparingBasedComparer<TestItem>());
+        private readonly OrderingFitnessFunction<TestItem> orderingFitnessFunction =
+            new OrderingFitnessFunction<TestItem>(new ElementsComparingBasedComparer<TestItem>());
 
         [Fact]
         public void TestOneElementCase()
         {
-            var fuzzySet = new FuzzySet<TestItem>()
+            FuzzySet<TestItem> fuzzySet = FuzzySet<TestItem>.Instance()
                 .SetFitnessFunction(orderingFitnessFunction);
 
             var universalItem = new TestItem(13);
@@ -30,8 +31,8 @@ namespace FitnessFunctionsTests
             var item3 = new TestItem(24);
             var item4 = new TestItem(6);
             var item5 = new TestItem(25);
-            
-            FuzzySet<TestItem> fuzzySet = new FuzzySet<TestItem>()
+
+            FuzzySet<TestItem> fuzzySet = FuzzySet<TestItem>.Instance()
                 .Add(item1)
                 .Add(item2)
                 .Add(item3)

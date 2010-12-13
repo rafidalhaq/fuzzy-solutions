@@ -7,9 +7,16 @@ namespace IGS.Fuzzy.FitnessFunctions
     public abstract class FitnessFunctionWithFitnessListBuilding<T> : IFitnessFunction<T>
     {
         protected readonly IFuzzyComparer<T> FuzzyComparer;
+        protected readonly IDictionary<T, double> Weights = new Dictionary<T, double>();
         protected FuzzySet<T> ParentFuzzySet;
         protected bool RebuildingRequired;
-        protected readonly IDictionary<T, double> Weights = new Dictionary<T, double>();
+
+        protected FitnessFunctionWithFitnessListBuilding(IFuzzyComparer<T> comparer)
+        {
+            FuzzyComparer = comparer;
+        }
+
+        #region IFitnessFunction<T> Members
 
         public FuzzySet<T> ParentSet
         {
@@ -23,24 +30,21 @@ namespace IGS.Fuzzy.FitnessFunctions
             }
         }
 
+        public double Invoke(T item)
+        {
+            if (RebuildingRequired)
+                RebuildWeights();
+
+            return Weights[item];
+        }
+
+        #endregion
+
         protected abstract void RebuildWeights();
 
         private void OnUniversalItemsCollectionChanged(object sender, UniversalItemsEventArgs<T> universalItemsEventArgs)
         {
             RebuildingRequired = true;
-        }
-
-        protected FitnessFunctionWithFitnessListBuilding(IFuzzyComparer<T> comparer)
-        {
-            FuzzyComparer = comparer;
-        }
-
-        public double Invoke(T item)
-        {
-            if(RebuildingRequired)
-                RebuildWeights();
-
-            return Weights[item];
         }
     }
 }

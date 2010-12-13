@@ -43,11 +43,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InclusionOperationTests.cs" />
-    <Compile Include="IntersectionOperationTests.cs" />
+    <Compile Include="TestBinaryOperations\AlgebraicSumOperationTests.cs" />
+    <Compile Include="TestBinaryOperations\CommonBinaryFeaturesTests.cs" />
+    <Compile Include="TestBinaryOperations\AlgebraicCompositionOperationTests.cs" />
+    <Compile Include="TestBinaryOperations\DisjunctiveSumOperationTests.cs" />
+    <Compile Include="TestBinaryOperations\DifferenceOperationTests.cs" />
+    <Compile Include="TestLogicalOperations\InclusionOperationTests.cs" />
+    <Compile Include="TestBinaryOperations\IntersectionOperationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SupplementTests.cs" />
-    <Compile Include="UnionOperationTests.cs" />
+    <Compile Include="TestUnaryOperations\CommonUnaryFeaturesTests.cs" />
+    <Compile Include="TestUnaryOperations\SupplementTests.cs" />
+    <Compile Include="TestBinaryOperations\UnionOperationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Logic\FuzzySetOperations\FuzzySetOperations.csproj">

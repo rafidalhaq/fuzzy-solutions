@@ -2,8 +2,7 @@
 {
     public interface IFitnessFunction<T>
     {
-        double Invoke(T item);
-
         FuzzySet<T> ParentSet { set; }
+        double Invoke(T item);
     }
 }

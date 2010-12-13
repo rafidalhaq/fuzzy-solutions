@@ -21,7 +21,7 @@ namespace FitnessFunctionsTests
         [Fact]
         public void FitnessFunctionMustThrowExceptionForOutOfRangeElements()
         {
-            IDictionary<int, double> dictionary = new Dictionary<int, double> { { 1, 0.5 } };
+            IDictionary<int, double> dictionary = new Dictionary<int, double> {{1, 0.5}};
 
             IFitnessFunction<int> fitnessFunction = new SwitchFitnessFunction<int>(dictionary);
 
