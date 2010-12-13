@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using IGS.Fuzzy.Core;
 
 namespace IGS.Fuzzy.FitnessFunctions
@@ -32,10 +31,5 @@ namespace IGS.Fuzzy.FitnessFunctions
         }
 
         #endregion
-
-        public void OnUniversalItemsCollectionChanged(object sender, UniversalItemsEventArgs<T> universalItemsEventArgs)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
