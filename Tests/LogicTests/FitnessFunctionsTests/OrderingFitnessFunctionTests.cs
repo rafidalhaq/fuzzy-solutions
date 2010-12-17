@@ -9,7 +9,8 @@ namespace FitnessFunctionsTests
     public class OrderingFitnessFunctionTests
     {
         private readonly OrderingFitnessFunction<TestItem> orderingFitnessFunction =
-            new OrderingFitnessFunction<TestItem>(new ElementsComparingBasedComparer<TestItem>(), new FuzzyOrderingGradationValueResolver());
+            new OrderingFitnessFunction<TestItem>(new ElementsComparingBasedComparer<TestItem>(),
+                                                  new FuzzyOrderingGradationValueResolver());
 
         [Fact]
         public void TestOneElementCase()

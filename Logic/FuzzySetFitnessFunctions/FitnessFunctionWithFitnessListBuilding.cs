@@ -9,11 +9,12 @@ namespace IGS.Fuzzy.FitnessFunctions
     {
         protected readonly IFuzzyComparer<T> FuzzyComparer;
         protected readonly IDictionary<T, double> Weights = new Dictionary<T, double>();
+        protected IFuzzyGradationValueResolver FuzzyGradationValueResolver;
         protected FuzzySet<T> ParentFuzzySet;
         protected bool RebuildingRequired;
-        protected IFuzzyGradationValueResolver FuzzyGradationValueResolver;
 
-        protected FitnessFunctionWithFitnessListBuilding(IFuzzyComparer<T> comparer, IFuzzyGradationValueResolver fuzzyGradationValueResolver)
+        protected FitnessFunctionWithFitnessListBuilding(IFuzzyComparer<T> comparer,
+                                                         IFuzzyGradationValueResolver fuzzyGradationValueResolver)
         {
             FuzzyComparer = comparer;
             FuzzyGradationValueResolver = fuzzyGradationValueResolver;

@@ -9,7 +9,8 @@ namespace IGS.Fuzzy.FitnessFunctions
     {
         private readonly OrderingComparer<T> orderer;
 
-        public OrderingFitnessFunction(IFuzzyComparer<T> fuzzyComparer, IFuzzyGradationValueResolver fuzzyGradationValueResolver)
+        public OrderingFitnessFunction(IFuzzyComparer<T> fuzzyComparer,
+                                       IFuzzyGradationValueResolver fuzzyGradationValueResolver)
             : base(fuzzyComparer, fuzzyGradationValueResolver)
         {
             orderer = new OrderingComparer<T>(fuzzyComparer);
@@ -45,7 +46,7 @@ namespace IGS.Fuzzy.FitnessFunctions
         {
             FuzzyCompareGradation fuzzyCompareResult = FuzzyComparer.Compare(current, previous);
 
-            if(fuzzyCompareResult == FuzzyCompareGradation.Less)
+            if (fuzzyCompareResult == FuzzyCompareGradation.Less)
                 throw new FitnessFunctionException("Множество универсальных элементов не было упорядочено корректно");
 
             double result = FuzzyGradationValueResolver.Resolve(fuzzyCompareResult);

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using IGS.Fuzzy.Comparers;
-using IGS.Fuzzy.Core;
 using IGS.Fuzzy.Core.FuzzyGradation;
 
 namespace IGS.Fuzzy.FitnessFunctions
