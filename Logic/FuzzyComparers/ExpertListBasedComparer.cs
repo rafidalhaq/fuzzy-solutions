@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using IGS.Fuzzy.Core;
+using IGS.Fuzzy.Core.FuzzyGradation;
 
 namespace IGS.Fuzzy.Comparers
 {

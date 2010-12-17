@@ -1,4 +1,4 @@
-﻿namespace IGS.Fuzzy.Core
+﻿namespace IGS.Fuzzy.Core.FuzzyGradation
 {
     public enum FuzzyCompareGradation
     {

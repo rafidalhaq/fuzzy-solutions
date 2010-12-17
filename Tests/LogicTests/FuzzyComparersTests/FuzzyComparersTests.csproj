@@ -50,6 +50,7 @@
     <Compile Include="ExpertListBasedComparerTests.cs" />
     <Compile Include="NativeComparerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestFuzzyGradationResolvers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Logic\FuzzyComparers\FuzzyComparers.csproj">

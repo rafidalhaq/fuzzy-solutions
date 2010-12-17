@@ -1,36 +1,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using IGS.Fuzzy.Comparers;
-using IGS.Fuzzy.Core;
+using IGS.Fuzzy.Core.FuzzyGradation;
 
 namespace IGS.Fuzzy.FitnessFunctions
 {
     public class OrderingFitnessFunction<T> : FitnessFunctionWithFitnessListBuilding<T>
     {
-        private readonly IDictionary<FuzzyCompareGradation, double> gradations =
-            new Dictionary<FuzzyCompareGradation, double>();
-
+        private readonly IFuzzyGradationValueResolver<FuzzyCompareGradation> fuzzyGradationValueResolver;
         private readonly OrderingComparer<T> orderer;
 
-        public OrderingFitnessFunction(IFuzzyComparer<T> fuzzyComparer)
+        public OrderingFitnessFunction(IFuzzyComparer<T> fuzzyComparer, IFuzzyGradationValueResolver<FuzzyCompareGradation> fuzzyGradationValueResolver)
             : base(fuzzyComparer)
         {
+            this.fuzzyGradationValueResolver = fuzzyGradationValueResolver;
             orderer = new OrderingComparer<T>(fuzzyComparer);
-
-            InitializeGradationDecryptor();
-        }
-
-        private void InitializeGradationDecryptor()
-        {
-            gradations.Add(FuzzyCompareGradation.Equal, 0);
-            gradations.Add(FuzzyCompareGradation.BetweenEqualAndAlmostEqual, 0);
-            gradations.Add(FuzzyCompareGradation.AlmostEqual, 0.25);
-            gradations.Add(FuzzyCompareGradation.BetweenAlmostEqualAndLittleBitGreater, 0.25);
-            gradations.Add(FuzzyCompareGradation.LittleBitGreater, 0.5);
-            gradations.Add(FuzzyCompareGradation.BetweenLittleBitGreaterAndGreater, 0.5);
-            gradations.Add(FuzzyCompareGradation.Greater, 0.75);
-            gradations.Add(FuzzyCompareGradation.BetweenGreaterAndMuchGreater, 0.75);
-            gradations.Add(FuzzyCompareGradation.MuchGreater, 1);
         }
 
         protected override void RebuildWeights()
@@ -63,10 +47,10 @@ namespace IGS.Fuzzy.FitnessFunctions
         {
             FuzzyCompareGradation fuzzyCompareResult = FuzzyComparer.Compare(current, previous);
 
-            double result;
-
-            if (gradations.TryGetValue(fuzzyCompareResult, out result) == false)
+            if(fuzzyCompareResult == FuzzyCompareGradation.Less)
                 throw new FitnessFunctionException("Множество универсальных элементов не было упорядочено корректно");
+
+            double result = fuzzyGradationValueResolver.Resolve(fuzzyCompareResult);
 
             result /= universalItemsCount - 1;
 

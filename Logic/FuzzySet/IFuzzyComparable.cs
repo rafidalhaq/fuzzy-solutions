@@ -1,6 +1,8 @@
-﻿namespace IGS.Fuzzy.Core
+﻿using IGS.Fuzzy.Core.FuzzyGradation;
+
+namespace IGS.Fuzzy.Core
 {
-    public interface IFuzzyComparable<T>
+    public interface IFuzzyComparable<in T>
     {
         FuzzyCompareGradation FuzzyCompareTo(T item);
     }

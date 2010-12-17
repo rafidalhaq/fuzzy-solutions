@@ -3,6 +3,7 @@ using System.Linq;
 using BusinessLogic.Matrix;
 using IGS.Fuzzy.Comparers;
 using IGS.Fuzzy.Core;
+using IGS.Fuzzy.Core.FuzzyGradation;
 using Processors;
 
 namespace IGS.Fuzzy.FitnessFunctions

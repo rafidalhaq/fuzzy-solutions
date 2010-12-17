@@ -1,5 +1,6 @@
 using IGS.Fuzzy.Comparers;
 using IGS.Fuzzy.Core;
+using IGS.Fuzzy.Core.FuzzyGradation;
 using IGS.Fuzzy.FitnessFunctions;
 using Xunit;
 
@@ -8,7 +9,7 @@ namespace FitnessFunctionsTests
     public class OrderingFitnessFunctionTests
     {
         private readonly OrderingFitnessFunction<TestItem> orderingFitnessFunction =
-            new OrderingFitnessFunction<TestItem>(new ElementsComparingBasedComparer<TestItem>());
+            new OrderingFitnessFunction<TestItem>(new ElementsComparingBasedComparer<TestItem>(), new FuzzyOrderingGradationValueResolver());
 
         [Fact]
         public void TestOneElementCase()

@@ -1,5 +1,5 @@
 ﻿using System;
-using IGS.Fuzzy.Core;
+using IGS.Fuzzy.Core.FuzzyGradation;
 
 namespace IGS.Fuzzy.Comparers
 {

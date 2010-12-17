@@ -1,5 +1,5 @@
 ﻿using IGS.Fuzzy.Comparers;
-using IGS.Fuzzy.Core;
+using IGS.Fuzzy.Core.FuzzyGradation;
 using Xunit;
 
 namespace FuzzyComparersTests
