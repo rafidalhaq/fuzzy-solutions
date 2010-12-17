@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+
+namespace IGS.Fuzzy.Comparers
+{
+    public class ExpertListBasedComparer<T, TGradation> : IFuzzyComparer<T, TGradation>
+    {
+        private readonly IDictionary<Tuple<T, T>, TGradation> pairToValue =
+            new Dictionary<Tuple<T, T>, TGradation>();
+
+        #region IFuzzyComparer<T> Members
+
+        public TGradation Compare(T first, T second)
+        {
+            TGradation value;
+
+            if (pairToValue.TryGetValue(new Tuple<T, T>(first, second), out value))
+                return value;
+
+            throw new FuzzyComparerException(
+                "Невозможно сравнить элементы на основании оценок эксперта, т.к. соответствие не было задано");
+        }
+
+        #endregion
+
+        public void AddPair(T first, T second, TGradation fuzzyCompareGradation)
+        {
+            pairToValue.Add(new Tuple<T, T>(first, second), fuzzyCompareGradation);
+        }
+    }
+}

@@ -1,0 +1,34 @@
+﻿using System.Collections.Generic;
+using IGS.Fuzzy.Comparers;
+using IGS.Fuzzy.Core;
+using IGS.Fuzzy.Core.FuzzyGradation;
+
+namespace IGS.Fuzzy.FitnessFunctions
+{
+    public class OrderingComparer<T> : IComparer<T>
+    {
+        private readonly IFuzzyComparer<T, FuzzyCompareBaseGradation> fuzzyComparer;
+
+        public OrderingComparer(IFuzzyComparer<T, FuzzyCompareBaseGradation> fuzzyComparer)
+        {
+            this.fuzzyComparer = fuzzyComparer;
+        }
+
+        #region IComparer<T> Members
+
+        public int Compare(T x, T y)
+        {
+            FuzzyCompareBaseGradation fuzzyCompareResult = fuzzyComparer.Compare(x, y);
+
+            if (fuzzyCompareResult == FuzzyCompareBaseGradation.Less)
+                return -1;
+
+            if (fuzzyCompareResult == FuzzyCompareBaseGradation.Equal)
+                return 0;
+
+            return 1;
+        }
+
+        #endregion
+    }
+}

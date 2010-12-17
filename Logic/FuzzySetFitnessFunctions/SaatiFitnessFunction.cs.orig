@@ -1,16 +1,31 @@
 using System.Collections.Generic;
 using System.Linq;
-using BusinessLogic.Matrix;
 using IGS.Fuzzy.Comparers;
 using IGS.Fuzzy.Core.FuzzyGradation;
-using Processors;
 
 namespace IGS.Fuzzy.FitnessFunctions
 {
     public class SaatiFitnessFunction<T> : FitnessFunctionWithFitnessListBuilding<T>
     {
-        public SaatiFitnessFunction(IFuzzyComparer<T> comparer, IFuzzyGradationValueResolver fuzzyGradationValueResolver) : base(comparer, fuzzyGradationValueResolver)
+        private readonly IDictionary<FuzzyCompareSaatiGradation, double> gradations =
+            new Dictionary<FuzzyCompareSaatiGradation, double>();
+
+        public SaatiFitnessFunction(IFuzzyComparer<T, FuzzyCompareSaatiGradation> comparer)
         {
+            InitializeGradationDecryptor();
+        }
+
+        private void InitializeGradationDecryptor()
+        {
+            gradations.Add(FuzzyCompareSaatiGradation.Equal, 1);
+            gradations.Add(FuzzyCompareSaatiGradation.BetweenEqualAndAlmostEqual, 2);
+            gradations.Add(FuzzyCompareSaatiGradation.AlmostEqual, 3);
+            gradations.Add(FuzzyCompareSaatiGradation.BetweenAlmostEqualAndLittleBitGreater, 4);
+            gradations.Add(FuzzyCompareSaatiGradation.LittleBitGreater, 5);
+            gradations.Add(FuzzyCompareSaatiGradation.BetweenLittleBitGreaterAndGreater, 6);
+            gradations.Add(FuzzyCompareSaatiGradation.Greater, 7);
+            gradations.Add(FuzzyCompareSaatiGradation.BetweenGreaterAndMuchGreater, 8);
+            gradations.Add(FuzzyCompareSaatiGradation.MuchGreater, 9);
         }
 
         protected override void RebuildWeights()
@@ -43,8 +58,8 @@ namespace IGS.Fuzzy.FitnessFunctions
                                                let fuzzyComparingResult = FuzzyComparer.Compare(item, otherItem)
                                                select
                                                    fuzzyComparingResult != FuzzyCompareGradation.Less
-                                                       ? FuzzyGradationValueResolver.Resolve(fuzzyComparingResult)
-                                                       : 1/FuzzyGradationValueResolver.Resolve(FuzzyComparer.Compare(otherItem, item))).ToArray()));
+                                                       ? gradations[fuzzyComparingResult]
+                                                       : 1/gradations[FuzzyComparer.Compare(otherItem, item)]).ToArray()));
             }
 
             return matrix;

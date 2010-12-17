@@ -1,0 +1,7 @@
+﻿namespace IGS.Fuzzy.Comparers
+{
+    public interface IFuzzyComparer<in TUniversalItem, out TGradation>
+    {
+        TGradation Compare(TUniversalItem first, TUniversalItem second);
+    }
+}

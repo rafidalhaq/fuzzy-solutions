@@ -1,0 +1,23 @@
+﻿using IGS.Fuzzy.Comparers;
+using IGS.Fuzzy.Core.FuzzyGradation;
+using Xunit;
+
+namespace FuzzyComparersTests
+{
+    public class NativeComparerTests
+    {
+        [Fact]
+        public void TestNativeComparer()
+        {
+            IFuzzyComparer<int, FuzzyCompareBaseGradation> fuzzyComparer = new NativeOrderingComparer<int>();
+
+            FuzzyCompareBaseGradation shouldBeLess = fuzzyComparer.Compare(3, 4);
+            FuzzyCompareBaseGradation shouldBeGreater = fuzzyComparer.Compare(4, 3);
+            FuzzyCompareBaseGradation shouldBeEqual = fuzzyComparer.Compare(4, 4);
+
+            Assert.Equal(FuzzyCompareBaseGradation.Less, shouldBeLess);
+            Assert.Equal(FuzzyCompareBaseGradation.Greater, shouldBeGreater);
+            Assert.Equal(FuzzyCompareBaseGradation.Equal, shouldBeEqual);
+        }
+    }
+}

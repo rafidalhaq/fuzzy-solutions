@@ -30,7 +30,7 @@ namespace FitnessFunctionsTests
             expertListBasedComparer.AddPair(4, 2, FuzzyCompareGradation.Less);
             expertListBasedComparer.AddPair(4, 3, FuzzyCompareGradation.Less);
 
-            var saati = new SaatiFitnessFunction<int>(expertListBasedComparer);
+            var saati = new SaatiFitnessFunction<int>(expertListBasedComparer, new SaatiOrderingGradationValueResolver());
 
             FuzzySet<int> fuzzySet = FuzzySet<int>.Instance();
 

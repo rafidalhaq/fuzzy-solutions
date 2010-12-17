@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+
+namespace IGS.Fuzzy.Core.FuzzyGradation
+{
+    public class FuzzyOrderingGradationValueResolver : IFuzzyGradationValueResolver<FuzzyCompareBaseGradation>
+    {
+        private readonly IDictionary<FuzzyCompareBaseGradation, double> gradationValues = new Dictionary<FuzzyCompareBaseGradation, double>
+                                                                                 {
+                                                                                     {FuzzyCompareBaseGradation.Equal, 0},
+                                                                                     {FuzzyCompareBaseGradation.AlmostEqual, 0.25},
+                                                                                     {FuzzyCompareBaseGradation.LittleBitGreater, 0.5},
+                                                                                     {FuzzyCompareBaseGradation.Greater, 0.75},
+                                                                                     {FuzzyCompareBaseGradation.MuchGreater, 1},
+                                                                                     {FuzzyCompareBaseGradation.Less, -1}
+                                                                                 };
+
+        public double Resolve(FuzzyCompareBaseGradation gradation)
+        {
+            return gradationValues[gradation];
+        }
+    }
+}

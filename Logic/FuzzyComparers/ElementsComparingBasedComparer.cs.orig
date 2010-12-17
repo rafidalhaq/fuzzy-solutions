@@ -1,0 +1,18 @@
+﻿using IGS.Fuzzy.Core;
+using IGS.Fuzzy.Core.FuzzyGradation;
+
+namespace IGS.Fuzzy.Comparers
+{
+    public class ElementsComparingBasedComparer<TUniversalItem, TGradation> : IFuzzyComparer<TUniversalItem, TGradation>
+        where TUniversalItem : IFuzzyComparable<TUniversalItem, TGradation>
+    {
+        #region IFuzzyComparer<TUniversalItem> Members
+
+        public TGradation Compare(TUniversalItem first, TUniversalItem second)
+        {
+            return first.FuzzyCompareTo(second);
+        }
+
+        #endregion
+    }
+}

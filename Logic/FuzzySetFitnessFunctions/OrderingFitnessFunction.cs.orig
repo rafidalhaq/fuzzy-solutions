@@ -7,11 +7,14 @@ namespace IGS.Fuzzy.FitnessFunctions
 {
     public class OrderingFitnessFunction<T> : FitnessFunctionWithFitnessListBuilding<T>
     {
+        private readonly IFuzzyGradationValueResolver<FuzzyCompareBaseGradation> fuzzyGradationValueResolver;
         private readonly OrderingComparer<T> orderer;
+        private readonly IFuzzyComparer<T, FuzzyCompareBaseGradation> fuzzyComparer;
 
-        public OrderingFitnessFunction(IFuzzyComparer<T> fuzzyComparer, IFuzzyGradationValueResolver fuzzyGradationValueResolver)
-            : base(fuzzyComparer, fuzzyGradationValueResolver)
+        public OrderingFitnessFunction(IFuzzyComparer<T, FuzzyCompareBaseGradation> fuzzyComparer, IFuzzyGradationValueResolver<FuzzyCompareBaseGradation> fuzzyGradationValueResolver)
         {
+            this.fuzzyGradationValueResolver = fuzzyGradationValueResolver;
+            this.fuzzyComparer = fuzzyComparer;
             orderer = new OrderingComparer<T>(fuzzyComparer);
         }
 
@@ -43,12 +46,12 @@ namespace IGS.Fuzzy.FitnessFunctions
 
         private double CalculateWeightFor(T current, T previous, int universalItemsCount)
         {
-            FuzzyCompareGradation fuzzyCompareResult = FuzzyComparer.Compare(current, previous);
+            FuzzyCompareBaseGradation fuzzyCompareResult = fuzzyComparer.Compare(current, previous);
 
-            if(fuzzyCompareResult == FuzzyCompareGradation.Less)
+            if(fuzzyCompareResult == FuzzyCompareBaseGradation.Less)
                 throw new FitnessFunctionException("Множество универсальных элементов не было упорядочено корректно");
 
-            double result = FuzzyGradationValueResolver.Resolve(fuzzyCompareResult);
+            double result = fuzzyGradationValueResolver.Resolve(fuzzyCompareResult);
 
             result /= universalItemsCount - 1;
 

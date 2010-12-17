@@ -41,11 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExpertListBasedComparer.cs" />
+    <Compile Include="FuzzyOrderingGradationValueResolver.cs" />
+    <Compile Include="IFuzzyGradationValueResolver.cs" />
     <Compile Include="NativeComparer.cs" />
     <Compile Include="ElementsComparingBasedComparer.cs" />
     <Compile Include="FuzzyComparerException.cs" />
     <Compile Include="IFuzzyComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SaatiOrderingGradationValueResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FuzzySet\FuzzyCore.csproj">
