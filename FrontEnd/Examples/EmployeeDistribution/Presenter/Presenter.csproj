@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmployeeDistributionPresenter.cs" />
+    <Compile Include="ApplicationState.cs" />
+    <Compile Include="IEmployeeDistributionPresenter.cs" />
+    <Compile Include="IMainView.cs" />
     <Compile Include="PerfomanceGradation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

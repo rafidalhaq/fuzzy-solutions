@@ -7,9 +7,10 @@ using Presenter;
 
 namespace EmployeeDistribution
 {
-    public partial class MainView : Form
+    public partial class MainView : Form, IMainView
     {
-        private IEmployeeDistributionPresenter presenter;
+        private readonly IEmployeeDistributionPresenter presenter;
+        public event EventHandler Next;
 
         public MainView(IEmployeeDistributionPresenter employeeDistributionPresenter)
         {
@@ -19,12 +20,22 @@ namespace EmployeeDistribution
 
         private void ButtonNextClick(object sender, EventArgs e)
         {
+            Next(this, new EventArgs());
+        }
+
+        public void AfterEmployeeAndPostsChoosen()
+        {
             var employee = GridToList(dataGridEmployee);
             var posts = GridToList(dataGridPosts);
 
             Controls.Remove(dataGridPosts);
             dataGridEmployee.Width += dataGridPosts.Width;
 
+            PrepareGreedForExpert(employee, posts);
+        }
+
+        private void PrepareGreedForExpert(IEnumerable<string> employee, IEnumerable<string> posts)
+        {
             dataGridEmployee.Columns.Clear();
 
             var dataGridViewColumnIndex = dataGridEmployee.Columns.Add(string.Empty, string.Empty);
