@@ -10,11 +10,11 @@ namespace Presenter
         {
             PerfomanceGradations = new[]
                                        {
-                                           new PerfomanceGradation("отличная"),
-                                           new PerfomanceGradation("очень хорошая"),
-                                           new PerfomanceGradation("довольно хорошая"),
-                                           new PerfomanceGradation("довольно плохая"),
-                                           new PerfomanceGradation("очень плохая")
+                                           new PerfomanceGradation("производительность отличная"),
+                                           new PerfomanceGradation("производительность очень хорошая"),
+                                           new PerfomanceGradation("производительность довольно хорошая"),
+                                           new PerfomanceGradation("производительность довольно плохая"),
+                                           new PerfomanceGradation("производительность очень плохая")
                                        };
         }
     }
