@@ -12,14 +12,17 @@ namespace IGS.Fuzzy.FuzzySetOperations.Binary.Difference
 
         protected override Func<T, double> GetFitnessFunxtion(FuzzySet<T> first, FuzzySet<T> second)
         {
+            var firstFitness = first.GetFitnessFunction();
+            var secondFitness = second.GetFitnessFunction();
+
             return x =>
                        {
-                           double firstFitness = first.GetFitnessFunction().Invoke(x);
-                           double secondFitness = 1 - second.GetFitnessFunction().Invoke(x);
+                           double firstWeight = firstFitness.Invoke(x);
+                           double secondWeight = 1 - secondFitness.Invoke(x);
 
-                           return firstFitness < secondFitness
-                                      ? firstFitness
-                                      : secondFitness;
+                           return firstWeight < secondWeight
+                                      ? firstWeight
+                                      : secondWeight;
                        };
         }
     }

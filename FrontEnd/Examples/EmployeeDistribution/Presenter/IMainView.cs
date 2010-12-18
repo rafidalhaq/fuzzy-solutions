@@ -6,5 +6,6 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
     {
         event EventHandler Next;
         void AfterEmployeeAndPostsChoosen();
+        void AfterExpertRated();
     }
 }

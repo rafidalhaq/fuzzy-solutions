@@ -10,7 +10,7 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter.States
 
         public override void Process()
         {
-            throw new NotImplementedException();
+            MainView.AfterExpertRated();
         }
     }
 }

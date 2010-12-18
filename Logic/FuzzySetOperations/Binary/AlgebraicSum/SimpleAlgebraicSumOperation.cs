@@ -12,10 +12,13 @@ namespace IGS.Fuzzy.FuzzySetOperations.Binary.AlgebraicSum
 
         protected override Func<T, double> GetFitnessFunxtion(FuzzySet<T> first, FuzzySet<T> second)
         {
+            var firstFitness = first.GetFitnessFunction();
+            var secondFitness = second.GetFitnessFunction();
+
             return x =>
                        {
-                           double firstWeight = first.GetFitnessFunction().Invoke(x);
-                           double secondWeight = second.GetFitnessFunction().Invoke(x);
+                           double firstWeight = firstFitness.Invoke(x);
+                           double secondWeight = secondFitness.Invoke(x);
 
                            return firstWeight + secondWeight - firstWeight*secondWeight;
                        };

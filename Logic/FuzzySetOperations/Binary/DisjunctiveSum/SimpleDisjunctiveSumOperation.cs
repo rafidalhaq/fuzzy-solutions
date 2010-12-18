@@ -12,13 +12,16 @@ namespace IGS.Fuzzy.FuzzySetOperations.Binary.DisjunctiveSum
 
         protected override Func<T, double> GetFitnessFunxtion(FuzzySet<T> first, FuzzySet<T> second)
         {
+            var firstFitness = first.GetFitnessFunction();
+            var secondFitness = second.GetFitnessFunction();
+
             return x =>
                        {
-                           double firstFitness = first.GetFitnessFunction().Invoke(x);
-                           double secondFitness = second.GetFitnessFunction().Invoke(x);
+                           double firstWeight = firstFitness.Invoke(x);
+                           double secondWeight = secondFitness.Invoke(x);
 
-                           double firstTmpResult = firstFitness < 1 - secondFitness ? firstFitness : 1 - secondFitness;
-                           double secondTmpResult = secondFitness < 1 - firstFitness ? secondFitness : 1 - firstFitness;
+                           double firstTmpResult = firstWeight < 1 - secondWeight ? firstWeight : 1 - secondWeight;
+                           double secondTmpResult = secondWeight < 1 - firstWeight ? secondWeight : 1 - firstWeight;
 
                            return firstTmpResult > secondTmpResult
                                       ? firstTmpResult

@@ -1,10 +1,11 @@
 using System.Linq;
 using IGS.Fuzzy.Core;
-using IGS.Fuzzy.FuzzySetOperations.Binary.Union;
+using IGS.Fuzzy.FuzzySetOperations;
+using IGS.Fuzzy.FuzzySetOperations.Multiple.Union;
 using TestStubs;
 using Xunit;
 
-namespace FuzzySetsOperationTests.TestBinaryOperations
+namespace FuzzySetsOperationTests.TestMultipleOperations
 {
     public class UnionOperationTests
     {
@@ -43,6 +44,28 @@ namespace FuzzySetsOperationTests.TestBinaryOperations
         }
 
         [Fact]
+        public void SimpleUnionMultipleTest()
+        {
+            FuzzySet<int> firstSet = FuzzySet<int>.Instance()
+                .Add(1)
+                .SetFitnessFunction(x => x == 1 ? 0.5 : 777);
+
+            FuzzySet<int> secondSet = FuzzySet<int>.Instance()
+                .Add(1)
+                .SetFitnessFunction(x => x == 1 ? 0.2 : 888);
+
+            FuzzySet<int> thirdSet = FuzzySet<int>.Instance()
+                .Add(1)
+                .SetFitnessFunction(x => x == 1 ? 0.1 : 888);
+
+            var algebraicCompositionOperation = new SimpleUnionOperation<int>();
+
+            FuzzySet<int> algebraicComposition = algebraicCompositionOperation.Operate(new[] { firstSet, secondSet, thirdSet });
+
+            Assert.Equal(0.5, algebraicComposition.GetWeight(1));
+        }
+
+        [Fact]
         public void SimpleUnionMustThrowExceptionIfFuzzySetsUniversalItemsCollectionsAreDifferent()
         {
             FuzzySet<int> fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
@@ -50,7 +73,7 @@ namespace FuzzySetsOperationTests.TestBinaryOperations
 
             var unionOperation = new SimpleUnionOperation<int>();
 
-            Assert.Throws<FuzzySetUniversalItemsException>(() => unionOperation.Operate(fuzzySet, other));
+            Assert.Throws<FuzzySetOperationException>(() => unionOperation.Operate(fuzzySet, other));
         }
     }
 }

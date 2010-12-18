@@ -31,6 +31,11 @@ namespace EmployeeDistribution
             PrepareGreedForExpert(employee, posts);
         }
 
+        public void AfterExpertRated()
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private void ButtonNextClick(object sender, EventArgs e)
@@ -70,8 +75,14 @@ namespace EmployeeDistribution
 
                     dataGridEmployee.Rows[dataGridViewRowIndex].Cells[0].Value = string.Format(
                         "{0} в должности \"{1}\"", emp, post);
+
+                    //dataGridEmployee.Rows[dataGridViewRowIndex].Tag = 
                 }
             }
+
+            int lastRowIndex = dataGridEmployee.Rows.Add();
+
+            dataGridEmployee.Rows[lastRowIndex].Cells[0].Value = "степень востребованности производительности";
         }
 
         private static IEnumerable<string> GridToList(DataGridView grid)
