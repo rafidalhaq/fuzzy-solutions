@@ -14,9 +14,13 @@ namespace IGS.Fuzzy.FuzzySetOperations.Multiple.AlgebraicComposition
 
         protected override Func<T, double> GetFitnessFunxtion(IEnumerable<FuzzySet<T>> sets)
         {
-            var fitnesses = sets.Select(x => x.GetFitnessFunction());
+            IEnumerable<IFitnessFunction<T>> fitnesses = sets.Select(x => x.GetFitnessFunction());
 
-            return x => fitnesses.Aggregate<IFitnessFunction<T>, double>(1, (current, fitnessFunction) => current * fitnessFunction.Invoke(x));
+            return
+                x =>
+                fitnesses.Aggregate<IFitnessFunction<T>, double>(1,
+                                                                 (current, fitnessFunction) =>
+                                                                 current*fitnessFunction.Invoke(x));
         }
     }
 }

@@ -15,7 +15,7 @@ namespace IGS.Fuzzy.FuzzySetOperations.Binary.Intersection
 
         protected override Func<T, double> GetFitnessFunxtion(IEnumerable<FuzzySet<T>> sets)
         {
-            var fitnesses = sets.Select(x => x.GetFitnessFunction());
+            IEnumerable<IFitnessFunction<T>> fitnesses = sets.Select(x => x.GetFitnessFunction());
 
             return x => fitnesses.Min(y => y.Invoke(x));
         }

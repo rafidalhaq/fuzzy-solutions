@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using IGS.Fuzzy.Core;
 
@@ -10,17 +11,17 @@ namespace IGS.Fuzzy.FuzzySetOperations.Binary
 
         public FuzzySet<T> Operate(FuzzySet<T> first, FuzzySet<T> second)
         {
-            return OperateBase(new []{first, second});
+            return OperateBase(new[] {first, second});
         }
 
         #endregion
 
-        protected override Func<T, double> GetFitnessFunxtion(System.Collections.Generic.IEnumerable<FuzzySet<T>> sets)
+        protected override Func<T, double> GetFitnessFunxtion(IEnumerable<FuzzySet<T>> sets)
         {
-            var fuzzySets = sets.ToList();
+            IList<FuzzySet<T>> fuzzySets = sets.ToList();
 
-            var first = fuzzySets[0];
-            var second = fuzzySets[1];
+            FuzzySet<T> first = fuzzySets[0];
+            FuzzySet<T> second = fuzzySets[1];
 
             return GetFitnessFunxtion(first, second);
         }

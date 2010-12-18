@@ -60,7 +60,8 @@ namespace FuzzySetsOperationTests.TestMultipleOperations
 
             var algebraicCompositionOperation = new SimpleUnionOperation<int>();
 
-            FuzzySet<int> algebraicComposition = algebraicCompositionOperation.Operate(new[] { firstSet, secondSet, thirdSet });
+            FuzzySet<int> algebraicComposition =
+                algebraicCompositionOperation.Operate(new[] {firstSet, secondSet, thirdSet});
 
             Assert.Equal(0.5, algebraicComposition.GetWeight(1));
         }

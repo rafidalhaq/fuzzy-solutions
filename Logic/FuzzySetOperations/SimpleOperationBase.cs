@@ -7,12 +7,16 @@ namespace IGS.Fuzzy.FuzzySetOperations
 {
     public abstract class SimpleOperationBase<T>
     {
+        protected string OperationName { private get; set; }
+
         protected FuzzySet<T> OperateBase(IEnumerable<FuzzySet<T>> fuzzySets)
         {
-            if(fuzzySets.Count() == 0)
-                throw new FuzzySetOperationException(string.Format("Невозможно совершить операцию \"{0}\", т.к. коллекция аргументов пуста", OperationName));
+            if (fuzzySets.Count() == 0)
+                throw new FuzzySetOperationException(
+                    string.Format("Невозможно совершить операцию \"{0}\", т.к. коллекция аргументов пуста",
+                                  OperationName));
 
-            var first = fuzzySets.First();
+            FuzzySet<T> first = fuzzySets.First();
 
             if (fuzzySets.Any(x => x.ItemsEquals(first) == false))
                 throw new FuzzySetOperationException(
@@ -28,7 +32,6 @@ namespace IGS.Fuzzy.FuzzySetOperations
             return resultSet;
         }
 
-        protected string OperationName { private get; set; }
         protected abstract Func<T, double> GetFitnessFunxtion(IEnumerable<FuzzySet<T>> sets);
     }
 }

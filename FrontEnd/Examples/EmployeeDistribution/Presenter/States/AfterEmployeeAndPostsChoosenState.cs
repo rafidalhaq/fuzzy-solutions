@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter.States
+﻿namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter.States
 {
     public class AfterEmployeeAndPostsChoosenState : ApplicationState
     {

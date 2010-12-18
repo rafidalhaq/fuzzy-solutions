@@ -34,7 +34,7 @@ namespace FuzzySetsOperationTests.TestMultipleOperations
 
             var algebraicCompositionOperation = new SimpleAlgebraicCompositionOperation<int>();
 
-            FuzzySet<int> algebraicComposition = algebraicCompositionOperation.Operate(new[]{ firstSet});
+            FuzzySet<int> algebraicComposition = algebraicCompositionOperation.Operate(new[] {firstSet});
 
             Assert.Equal(0.5, algebraicComposition.GetWeight(1));
         }
@@ -49,14 +49,15 @@ namespace FuzzySetsOperationTests.TestMultipleOperations
             FuzzySet<int> secondSet = FuzzySet<int>.Instance()
                 .Add(1)
                 .SetFitnessFunction(x => x == 1 ? 0.2 : 888);
-            
+
             FuzzySet<int> thirdSet = FuzzySet<int>.Instance()
                 .Add(1)
                 .SetFitnessFunction(x => x == 1 ? 0.1 : 888);
 
             var algebraicCompositionOperation = new SimpleAlgebraicCompositionOperation<int>();
 
-            FuzzySet<int> algebraicComposition = algebraicCompositionOperation.Operate(new[]{ firstSet, secondSet, thirdSet});
+            FuzzySet<int> algebraicComposition =
+                algebraicCompositionOperation.Operate(new[] {firstSet, secondSet, thirdSet});
 
             Assert.Equal(0.01, Math.Round(algebraicComposition.GetWeight(1), 2));
         }

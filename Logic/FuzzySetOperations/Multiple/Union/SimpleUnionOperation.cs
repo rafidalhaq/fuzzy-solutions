@@ -14,7 +14,7 @@ namespace IGS.Fuzzy.FuzzySetOperations.Multiple.Union
 
         protected override Func<T, double> GetFitnessFunxtion(IEnumerable<FuzzySet<T>> sets)
         {
-            var fitnesses = sets.Select(x => x.GetFitnessFunction());
+            IEnumerable<IFitnessFunction<T>> fitnesses = sets.Select(x => x.GetFitnessFunction());
 
             return x => fitnesses.Max(y => y.Invoke(x));
         }
