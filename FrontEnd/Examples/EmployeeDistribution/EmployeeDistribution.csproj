@@ -8,7 +8,7 @@
     <ProjectGuid>{8FE786CB-7964-41CE-83F6-790E7329EE88}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EmployeeDistribution</RootNamespace>
+    <RootNamespace>IGS.Fuzzy.Examples.EmployeeDistribution</RootNamespace>
     <AssemblyName>EmployeeDistribution</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

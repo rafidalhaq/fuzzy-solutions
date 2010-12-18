@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using IGS.Fuzzy.Examples.EmployeeDistribution.Presenter.States;
 
-namespace Presenter
+namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 {
     public class EmployeeDistributionPresenter : IEmployeeDistributionPresenter
     {
         private readonly IMainView mainView;
         private ApplicationState applicationState;
-        public IEnumerable<PerfomanceGradation> PerfomanceGradations { get; private set; }
-        
+
         public EmployeeDistributionPresenter(IMainView mainView)
         {
             this.mainView = mainView;
@@ -25,36 +25,17 @@ namespace Presenter
             applicationState = new StateBegin(mainView);
         }
 
+        #region IEmployeeDistributionPresenter Members
+
+        public IEnumerable<PerfomanceGradation> PerfomanceGradations { get; private set; }
+
+        #endregion
+
         private void OnNext(object sender, EventArgs e)
         {
             applicationState.Process();
 
             applicationState = applicationState.NextState;
-        }
-    }
-
-    public class StateBegin : ApplicationState
-    {
-        public StateBegin(IMainView mainView) : base(mainView)
-        {
-            NextState = new AfterEmployeeAndPostsChoosenState(mainView);
-        }
-
-        public override void Process()
-        {
-            MainView.AfterEmployeeAndPostsChoosen();
-        }
-    }
-
-    public class AfterEmployeeAndPostsChoosenState : ApplicationState
-    {
-        public AfterEmployeeAndPostsChoosenState(IMainView mainView) : base(mainView)
-        {
-        }
-
-        public override void Process()
-        {
-            throw new NotImplementedException();
         }
     }
 }

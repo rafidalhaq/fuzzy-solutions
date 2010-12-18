@@ -3,30 +3,27 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Presenter;
+using IGS.Fuzzy.Examples.EmployeeDistribution.Presenter;
 
 namespace EmployeeDistribution
 {
     public partial class MainView : Form, IMainView
     {
-        private readonly IEmployeeDistributionPresenter presenter;
-        public event EventHandler Next;
+        private EmployeeDistributionPresenter presenter;
 
-        public MainView(IEmployeeDistributionPresenter employeeDistributionPresenter)
+        public MainView()
         {
-            presenter = employeeDistributionPresenter;
             InitializeComponent();
         }
 
-        private void ButtonNextClick(object sender, EventArgs e)
-        {
-            Next(this, new EventArgs());
-        }
+        #region IMainView Members
+
+        public event EventHandler Next;
 
         public void AfterEmployeeAndPostsChoosen()
         {
-            var employee = GridToList(dataGridEmployee);
-            var posts = GridToList(dataGridPosts);
+            IEnumerable<string> employee = GridToList(dataGridEmployee);
+            IEnumerable<string> posts = GridToList(dataGridPosts);
 
             Controls.Remove(dataGridPosts);
             dataGridEmployee.Width += dataGridPosts.Width;
@@ -34,29 +31,45 @@ namespace EmployeeDistribution
             PrepareGreedForExpert(employee, posts);
         }
 
+        #endregion
+
+        private void ButtonNextClick(object sender, EventArgs e)
+        {
+            Next(this, new EventArgs());
+        }
+
         private void PrepareGreedForExpert(IEnumerable<string> employee, IEnumerable<string> posts)
         {
             dataGridEmployee.Columns.Clear();
 
-            var dataGridViewColumnIndex = dataGridEmployee.Columns.Add(string.Empty, string.Empty);
-            dataGridEmployee.Columns[dataGridViewColumnIndex].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            int dataGridViewColumnIndex = dataGridEmployee.Columns.Add(string.Empty, string.Empty);
+            dataGridEmployee.Columns[dataGridViewColumnIndex].AutoSizeMode =
+                DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridEmployee.Columns[dataGridViewColumnIndex].ReadOnly = true;
-            dataGridEmployee.Columns[dataGridViewColumnIndex].DefaultCellStyle = new DataGridViewCellStyle{Font = new Font(dataGridEmployee.Font, FontStyle.Bold), BackColor = Color.LightGray};
+            dataGridEmployee.Columns[dataGridViewColumnIndex].DefaultCellStyle = new DataGridViewCellStyle
+                                                                                     {
+                                                                                         Font =
+                                                                                             new Font(
+                                                                                             dataGridEmployee.Font,
+                                                                                             FontStyle.Bold),
+                                                                                         BackColor = Color.LightGray
+                                                                                     };
 
-            foreach (var perfomanceGradation in presenter.PerfomanceGradations)
+            foreach (PerfomanceGradation perfomanceGradation in presenter.PerfomanceGradations)
             {
-                var columnIndex = dataGridEmployee.Columns.Add(perfomanceGradation.Name, perfomanceGradation.Name);
+                int columnIndex = dataGridEmployee.Columns.Add(perfomanceGradation.Name, perfomanceGradation.Name);
                 dataGridEmployee.Columns[columnIndex].Width = 118;
                 dataGridEmployee.Columns[columnIndex].ValueType = typeof (double);
             }
 
-            foreach (var emp in employee)
+            foreach (string emp in employee)
             {
-                foreach (var post in posts)
+                foreach (string post in posts)
                 {
-                    var dataGridViewRowIndex = dataGridEmployee.Rows.Add();
+                    int dataGridViewRowIndex = dataGridEmployee.Rows.Add();
 
-                    dataGridEmployee.Rows[dataGridViewRowIndex].Cells[0].Value = string.Format("{0} в должности \"{1}\"", emp, post);
+                    dataGridEmployee.Rows[dataGridViewRowIndex].Cells[0].Value = string.Format(
+                        "{0} в должности \"{1}\"", emp, post);
                 }
             }
         }
@@ -68,6 +81,11 @@ namespace EmployeeDistribution
                 .Select(row => row.Cells[0].EditedFormattedValue.ToString())
                 .Where(x => string.IsNullOrEmpty(x) == false)
                 .ToList();
+        }
+
+        public void SetPresenter(EmployeeDistributionPresenter employeeDistributionPresenter)
+        {
+            presenter = employeeDistributionPresenter;
         }
     }
 }

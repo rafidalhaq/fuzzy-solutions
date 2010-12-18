@@ -1,6 +1,6 @@
 using System;
 
-namespace Presenter
+namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 {
     public interface IMainView
     {

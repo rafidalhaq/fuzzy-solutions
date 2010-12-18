@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using BusinessLogic.Matrix;
 using IGS.Fuzzy.Comparers;
@@ -18,9 +19,9 @@ namespace IGS.Fuzzy.FitnessFunctions
             Weights.Clear();
 
             Matrix matrix = BuildSaatiMatrix();
-            var transposed = MatrixProcessor.GetTransposedMatrix(matrix);
+            Matrix transposed = MatrixProcessor.GetTransposedMatrix(matrix);
 
-            var freeRow = transposed.Lines
+            List<double> freeRow = transposed.Lines
                 .Select(column => column.LineElements.Sum())
                 .Select(columnSum => 1/columnSum).ToList();
 

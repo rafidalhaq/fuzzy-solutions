@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Presenter
+namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 {
     public interface IEmployeeDistributionPresenter
     {

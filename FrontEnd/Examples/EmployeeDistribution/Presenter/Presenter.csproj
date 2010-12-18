@@ -8,7 +8,7 @@
     <ProjectGuid>{08384C35-E819-4CD3-B35F-36E646905ED8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Presenter</RootNamespace>
+    <RootNamespace>IGS.Fuzzy.Examples.EmployeeDistribution.Presenter</RootNamespace>
     <AssemblyName>Presenter</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,12 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="States\AfterEmployeeAndPostsChoosenState.cs" />
     <Compile Include="EmployeeDistributionPresenter.cs" />
-    <Compile Include="ApplicationState.cs" />
+    <Compile Include="States\ApplicationState.cs" />
     <Compile Include="IEmployeeDistributionPresenter.cs" />
     <Compile Include="IMainView.cs" />
     <Compile Include="PerfomanceGradation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="States\StateBegin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace PresenterTests
+namespace IGS.Fuzzy.Examples.EmployeeDistribution.Tests
 {
     public class PresenterTests
     {

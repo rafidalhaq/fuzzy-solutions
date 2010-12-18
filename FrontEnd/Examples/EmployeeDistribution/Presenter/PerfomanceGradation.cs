@@ -1,4 +1,4 @@
-﻿namespace Presenter
+﻿namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 {
     public class PerfomanceGradation
     {

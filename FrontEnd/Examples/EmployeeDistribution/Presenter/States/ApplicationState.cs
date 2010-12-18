@@ -1,4 +1,4 @@
-﻿namespace Presenter
+﻿namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter.States
 {
     public abstract class ApplicationState
     {
@@ -6,7 +6,7 @@
 
         protected ApplicationState(IMainView mainView)
         {
-            this.MainView = mainView;
+            MainView = mainView;
         }
 
         public ApplicationState NextState { get; protected set; }
