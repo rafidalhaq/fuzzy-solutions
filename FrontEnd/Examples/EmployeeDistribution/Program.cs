@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Presenter;
 
 namespace EmployeeDistribution
 {
@@ -15,7 +16,7 @@ namespace EmployeeDistribution
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run();
+            Application.Run(new MainView(new EmployeeDistributionPresenter()));
         }
     }
 }

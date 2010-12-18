@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Xunit;
 
 namespace PresenterTests
 {
     public class PresenterTests
     {
-        [Xunit.Fact]
+        [Fact]
         public void NothingToTestYet()
         {
-            
         }
     }
 }
