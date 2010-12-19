@@ -42,17 +42,19 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 
             GetReplacements(new List<EmployeeOnPost>{etalone}, employeeOnPosts, replacements);
 
-            IList<FuzzySet<PerfomanceGradation>> fuzzyReplacements = GetFuzzyReplacements(replacements);
+            IEnumerable<FuzzySet<PerfomanceGradation>> fuzzyReplacements = GetFuzzyReplacements(replacements);
 
             IList<FuzzySet<PerfomanceGradation>> bestReplacements = GetBestFuzzyReplacements(fuzzyReplacements);
         }
 
-        private IList<FuzzySet<PerfomanceGradation>> GetBestFuzzyReplacements(IList<FuzzySet<PerfomanceGradation>> fuzzyReplacements)
+        private static IList<FuzzySet<PerfomanceGradation>> GetBestFuzzyReplacements(IEnumerable<FuzzySet<PerfomanceGradation>> fuzzyReplacements)
         {
-            throw new NotImplementedException();
+            return fuzzyReplacements
+                .Where(x => x.GetFitnessFunction().GetMax() == fuzzyReplacements.Max(y => y.GetFitnessFunction().GetMax()))
+                .ToList();
         }
 
-        private IList<FuzzySet<PerfomanceGradation>> GetFuzzyReplacements(IEnumerable<IList<EmployeeOnPost>> replacements)
+        private IEnumerable<FuzzySet<PerfomanceGradation>> GetFuzzyReplacements(IEnumerable<IList<EmployeeOnPost>> replacements)
         {
             IList<FuzzySet<PerfomanceGradation>> fuzzyReplacements = new List<FuzzySet<PerfomanceGradation>>();
 
