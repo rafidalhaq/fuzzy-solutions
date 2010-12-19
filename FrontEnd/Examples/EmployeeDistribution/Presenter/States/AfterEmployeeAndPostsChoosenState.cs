@@ -2,13 +2,15 @@
 {
     public class AfterEmployeeAndPostsChoosenState : ApplicationState
     {
-        public AfterEmployeeAndPostsChoosenState(IMainView mainView) : base(mainView)
+        public AfterEmployeeAndPostsChoosenState(IMainView mainView, IEmployeeDistributionPresenter presenter) : base(mainView, presenter)
         {
         }
 
         public override void Process()
         {
-            MainView.AfterExpertRated();
+            var employeeOnPosts = MainView.AfterExpertRated();
+
+            Presenter.CalculateBestReplacements(employeeOnPosts);
         }
     }
 }

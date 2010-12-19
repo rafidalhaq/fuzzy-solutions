@@ -1,21 +1,20 @@
-using System;
+using System.Collections.Generic;
 
 namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 {
     public class EmployeeOnPost
     {
+        public EmployeeOnPost()
+        {
+            PerfomanceGradations = new Dictionary<PerfomanceGradation, double>();
+        }
+
         public Employee Employee { get; set; }
 
         public Post Post { get; set; }
-    }
 
-    public class Post
-    {
-        public Post(string name)
-        {
-            Name = name;
-        }
+        public bool IsEtalone { get; set; }
 
-        public string Name { get; private set; }
+        public IDictionary<PerfomanceGradation, double> PerfomanceGradations { get; private set; }
     }
 }

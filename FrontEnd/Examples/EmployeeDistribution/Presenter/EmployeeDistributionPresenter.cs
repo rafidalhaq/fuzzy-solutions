@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using IGS.Fuzzy.Core;
 using IGS.Fuzzy.Examples.EmployeeDistribution.Presenter.States;
+using IGS.Fuzzy.FitnessFunctions;
+using IGS.Fuzzy.FuzzySetOperations.Binary.Intersection;
 
 namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 {
@@ -22,12 +26,85 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
                                        };
             mainView.Next += OnNext;
 
-            applicationState = new StateBegin(mainView);
+            applicationState = new StateBegin(mainView, this);
         }
 
         #region IEmployeeDistributionPresenter Members
 
         public IEnumerable<PerfomanceGradation> PerfomanceGradations { get; private set; }
+
+        public void CalculateBestReplacements(IList<EmployeeOnPost> employeeOnPostsWithEtalone)
+        {
+            var employeeOnPosts = employeeOnPostsWithEtalone.Where(x => x.IsEtalone == false);
+            var etalone = employeeOnPostsWithEtalone.Where(x => x.IsEtalone == true).FirstOrDefault();
+
+            IList<IList<EmployeeOnPost>> replacements = new List<IList<EmployeeOnPost>>();
+
+            GetReplacements(new List<EmployeeOnPost>{etalone}, employeeOnPosts, replacements);
+
+            IList<FuzzySet<PerfomanceGradation>> fuzzyReplacements = GetFuzzyReplacements(replacements);
+
+            IList<FuzzySet<PerfomanceGradation>> bestReplacements = GetBestFuzzyReplacements(fuzzyReplacements);
+        }
+
+        private IList<FuzzySet<PerfomanceGradation>> GetBestFuzzyReplacements(IList<FuzzySet<PerfomanceGradation>> fuzzyReplacements)
+        {
+            throw new NotImplementedException();
+        }
+
+        private IList<FuzzySet<PerfomanceGradation>> GetFuzzyReplacements(IEnumerable<IList<EmployeeOnPost>> replacements)
+        {
+            IList<FuzzySet<PerfomanceGradation>> fuzzyReplacements = new List<FuzzySet<PerfomanceGradation>>();
+
+            var intersectionOperation = new SimpleIntersectionOperation<PerfomanceGradation>();
+
+            foreach (var replacement in replacements)
+            {
+                IList<FuzzySet<PerfomanceGradation>> fuzzyEmployeeOnPost = new List<FuzzySet<PerfomanceGradation>>();
+
+                foreach (var employeeOnPost in replacement)
+                {
+                    var fuzzySet = FuzzySet<PerfomanceGradation>.Instance();
+                    foreach (var perfomanceGradation in PerfomanceGradations)
+                    {
+                        var fitnessFunction = new SwitchFitnessFunction<PerfomanceGradation>(employeeOnPost.PerfomanceGradations);
+
+                        fuzzySet.Add(perfomanceGradation);
+                        fuzzySet.SetFitnessFunction(fitnessFunction);
+                    }
+
+                    fuzzyEmployeeOnPost.Add(fuzzySet);
+                }
+
+                var fuzzyReplacement = intersectionOperation.Operate(fuzzyEmployeeOnPost);
+                fuzzyReplacements.Add(fuzzyReplacement);
+            }
+
+            return fuzzyReplacements;
+        }
+
+        private static void GetReplacements(IList<EmployeeOnPost> currentReplacement, IEnumerable<EmployeeOnPost> itemsLeft, IList<IList<EmployeeOnPost>> replacements)
+        {
+            if (itemsLeft.Count() == 0)
+                replacements.Add(currentReplacement);
+
+            else
+            {
+                foreach (var itemLeft in itemsLeft.Where(x => x.Employee.Equals(itemsLeft.First().Employee)))
+                {
+                    var nextIterationReplacement = new List<EmployeeOnPost>(currentReplacement) {itemLeft};
+
+                    EmployeeOnPost empOnPost = itemLeft;
+
+                    GetReplacements(
+                        nextIterationReplacement,
+                        itemsLeft
+                            .Where(x => x.Employee.Equals(empOnPost.Employee) == false)
+                            .Where(x => x.Post.Equals(empOnPost.Post) == false),
+                        replacements);
+                }
+            }
+        }
 
         #endregion
 

@@ -31,9 +31,29 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution
             PrepareGreedForExpert(employee, posts);
         }
 
-        public void AfterExpertRated()
+        public IList<EmployeeOnPost> AfterExpertRated()
         {
-            throw new NotImplementedException();
+            IList<EmployeeOnPost> employeeOnPosts = new List<EmployeeOnPost>();
+
+            foreach (DataGridViewRow row in dataGridEmployee.Rows)
+            {
+                var employeeOnPost = row.Tag as EmployeeOnPost;
+
+                if (employeeOnPost != null)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.OwningColumn.Tag is PerfomanceGradation)
+                            if (cell.FormattedValue != null)
+                                employeeOnPost.PerfomanceGradations.Add((PerfomanceGradation) cell.OwningColumn.Tag,
+                                                                        double.Parse(cell.FormattedValue.ToString()));
+                    }
+
+                    employeeOnPosts.Add(employeeOnPost);
+                }
+            }
+
+            return employeeOnPosts;
         }
 
         #endregion
@@ -66,7 +86,7 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution
             int lastRowIndex = dataGridEmployee.Rows.Add();
 
             dataGridEmployee.Rows[lastRowIndex].Cells[0].Value = "степень востребованности производительности";
-            dataGridEmployee.Rows[lastRowIndex].Tag = new EmployeeOnPost { Employee = new Employee(), Post = new Post() };
+            dataGridEmployee.Rows[lastRowIndex].Tag = new EmployeeOnPost{IsEtalone = true};
         }
 
         private void PrepareColumnsForExpert()

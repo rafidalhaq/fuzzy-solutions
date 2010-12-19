@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 {
@@ -6,6 +7,6 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
     {
         event EventHandler Next;
         void AfterEmployeeAndPostsChoosen();
-        void AfterExpertRated();
+        IList<EmployeeOnPost> AfterExpertRated();
     }
 }

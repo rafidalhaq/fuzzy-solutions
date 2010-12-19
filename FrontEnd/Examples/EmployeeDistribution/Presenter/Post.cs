@@ -2,16 +2,16 @@
 
 namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 {
-    public class Employee : IEquatable<Employee>
+    public class Post : IEquatable<Post>
     {
-        public string Name { get; private set; }
-
-        public Employee(string name)
+        public Post(string name)
         {
             Name = name;
         }
-
-        public bool Equals(Employee other)
+        
+        public string Name { get; private set; }
+        
+        public bool Equals(Post other)
         {
             return Name.Equals(other.Name);
         }
