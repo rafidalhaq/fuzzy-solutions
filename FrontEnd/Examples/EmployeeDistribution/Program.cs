@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using EmployeeDistribution;
 using IGS.Fuzzy.Examples.EmployeeDistribution.Presenter;
 
 namespace IGS.Fuzzy.Examples.EmployeeDistribution

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using IGS.Fuzzy.Examples.EmployeeDistribution.Presenter;
 
-namespace EmployeeDistribution
+namespace IGS.Fuzzy.Examples.EmployeeDistribution
 {
     public partial class MainView : Form, IMainView
     {
@@ -48,15 +48,11 @@ namespace EmployeeDistribution
             dataGridEmployee.Columns.Clear();
 
             int dataGridViewColumnIndex = dataGridEmployee.Columns.Add(string.Empty, string.Empty);
-            dataGridEmployee.Columns[dataGridViewColumnIndex].AutoSizeMode =
-                DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridEmployee.Columns[dataGridViewColumnIndex].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             dataGridEmployee.Columns[dataGridViewColumnIndex].ReadOnly = true;
             dataGridEmployee.Columns[dataGridViewColumnIndex].DefaultCellStyle = new DataGridViewCellStyle
                                                                                      {
-                                                                                         Font =
-                                                                                             new Font(
-                                                                                             dataGridEmployee.Font,
-                                                                                             FontStyle.Bold),
+                                                                                         Font = new Font(dataGridEmployee.Font, FontStyle.Bold),
                                                                                          BackColor = Color.LightGray
                                                                                      };
 
@@ -73,8 +69,7 @@ namespace EmployeeDistribution
                 {
                     int dataGridViewRowIndex = dataGridEmployee.Rows.Add();
 
-                    dataGridEmployee.Rows[dataGridViewRowIndex].Cells[0].Value = string.Format(
-                        "{0} в должности \"{1}\"", emp, post);
+                    dataGridEmployee.Rows[dataGridViewRowIndex].Cells[0].Value = string.Format("{0} в должности \"{1}\"", emp, post);
 
                     //dataGridEmployee.Rows[dataGridViewRowIndex].Tag = 
                 }

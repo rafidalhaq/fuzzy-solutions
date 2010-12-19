@@ -1,4 +1,4 @@
-﻿namespace EmployeeDistribution
+﻿namespace IGS.Fuzzy.Examples.EmployeeDistribution
 {
     partial class MainView
     {
@@ -44,7 +44,7 @@
             this.Column1});
             this.dataGridEmployee.Location = new System.Drawing.Point(12, 12);
             this.dataGridEmployee.Name = "dataGridEmployee";
-            this.dataGridEmployee.Size = new System.Drawing.Size(424, 456);
+            this.dataGridEmployee.Size = new System.Drawing.Size(549, 456);
             this.dataGridEmployee.TabIndex = 0;
             // 
             // Column1
@@ -55,7 +55,7 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(825, 472);
+            this.buttonNext.Location = new System.Drawing.Point(1022, 474);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(75, 23);
             this.buttonNext.TabIndex = 1;
@@ -68,9 +68,9 @@
             this.dataGridPosts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridPosts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1});
-            this.dataGridPosts.Location = new System.Drawing.Point(442, 12);
+            this.dataGridPosts.Location = new System.Drawing.Point(567, 12);
             this.dataGridPosts.Name = "dataGridPosts";
-            this.dataGridPosts.Size = new System.Drawing.Size(458, 456);
+            this.dataGridPosts.Size = new System.Drawing.Size(530, 456);
             this.dataGridPosts.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
@@ -83,7 +83,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 507);
+            this.ClientSize = new System.Drawing.Size(1109, 507);
             this.Controls.Add(this.dataGridPosts);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.dataGridEmployee);
