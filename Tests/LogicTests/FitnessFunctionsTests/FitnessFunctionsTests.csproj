@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FitnessFunxtionCommonFeaturesTests.cs" />
     <Compile Include="OrderingFitnessFunctionTests.cs" />
     <Compile Include="SaatiFitnessFunctionTests.cs" />
     <Compile Include="SwitchFitnessFunctionTests.cs" />

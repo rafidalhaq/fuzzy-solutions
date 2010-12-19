@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using IGS.Fuzzy.Core;
 
 namespace IGS.Fuzzy.FitnessFunctions
@@ -23,6 +25,11 @@ namespace IGS.Fuzzy.FitnessFunctions
 
             throw new FuzzySetUniversalItemsException(
                 "Функция соответствия не определена для элемента нечёткого множества, который был передан в качестве аргумента.");
+        }
+
+        public double GetMax()
+        {
+            return itemsWeights.Values.Max();
         }
 
         public FuzzySet<T> ParentSet

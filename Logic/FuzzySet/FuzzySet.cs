@@ -75,7 +75,7 @@ namespace IGS.Fuzzy.Core
 
         public FuzzySet<T> SetFitnessFunction(Func<T, double> func)
         {
-            return SetFitnessFunction(new FitnessFunction(func));
+            return SetFitnessFunction(new FitnessFunction(func, this));
         }
 
         public bool ItemsEquals(FuzzySet<T> other)
@@ -136,9 +136,10 @@ namespace IGS.Fuzzy.Core
 
         private class FitnessFunction : IFitnessFunction<T>
         {
-            public FitnessFunction(Func<T, double> func)
+            public FitnessFunction(Func<T, double> func, FuzzySet<T> parentSet)
             {
                 Function = func;
+                ParentSet = parentSet;
             }
 
             private Func<T, double> Function { get; set; }
@@ -150,10 +151,12 @@ namespace IGS.Fuzzy.Core
                 return Function.Invoke(item);
             }
 
-            public FuzzySet<T> ParentSet
+            public double GetMax()
             {
-                set { }
+                return ParentSet.UniversalItems.Max(x => Invoke(x));
             }
+
+            public FuzzySet<T> ParentSet { private get; set; }
 
             #endregion
         }

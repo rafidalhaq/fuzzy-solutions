@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using IGS.Fuzzy.Comparers;
 using IGS.Fuzzy.Core;
 using IGS.Fuzzy.Core.FuzzyGradation;
@@ -40,6 +42,11 @@ namespace IGS.Fuzzy.FitnessFunctions
                 RebuildWeights();
 
             return Weights[item];
+        }
+
+        public double GetMax()
+        {
+            return Weights.Values.Max();
         }
 
         #endregion

@@ -4,5 +4,6 @@
     {
         FuzzySet<T> ParentSet { set; }
         double Invoke(T item);
+        double GetMax();
     }
 }
