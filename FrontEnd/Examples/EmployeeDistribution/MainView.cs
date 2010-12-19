@@ -45,6 +45,32 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution
 
         private void PrepareGreedForExpert(IEnumerable<string> employee, IEnumerable<string> posts)
         {
+            PrepareColumnsForExpert();
+
+            PrepareRowsForExpert(employee, posts);
+        }
+
+        private void PrepareRowsForExpert(IEnumerable<string> employee, IEnumerable<string> posts)
+        {
+            foreach (string emp in employee)
+            {
+                foreach (string post in posts)
+                {
+                    int dataGridViewRowIndex = dataGridEmployee.Rows.Add();
+
+                    dataGridEmployee.Rows[dataGridViewRowIndex].Cells[0].Value = string.Format("{0} в должности \"{1}\"", emp, post);
+                    dataGridEmployee.Rows[dataGridViewRowIndex].Tag = new EmployeeOnPost { Employee = new Employee(emp), Post = new Post(post) };
+                }
+            }
+
+            int lastRowIndex = dataGridEmployee.Rows.Add();
+
+            dataGridEmployee.Rows[lastRowIndex].Cells[0].Value = "степень востребованности производительности";
+            dataGridEmployee.Rows[lastRowIndex].Tag = new EmployeeOnPost { Employee = new Employee(), Post = new Post() };
+        }
+
+        private void PrepareColumnsForExpert()
+        {
             dataGridEmployee.Columns.Clear();
 
             int dataGridViewColumnIndex = dataGridEmployee.Columns.Add(string.Empty, string.Empty);
@@ -60,24 +86,9 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution
             {
                 int columnIndex = dataGridEmployee.Columns.Add(perfomanceGradation.Name, perfomanceGradation.Name);
                 dataGridEmployee.Columns[columnIndex].Width = 118;
-                dataGridEmployee.Columns[columnIndex].ValueType = typeof (double);
+                dataGridEmployee.Columns[columnIndex].ValueType = typeof(double);
+                dataGridEmployee.Columns[columnIndex].Tag = perfomanceGradation;
             }
-
-            foreach (string emp in employee)
-            {
-                foreach (string post in posts)
-                {
-                    int dataGridViewRowIndex = dataGridEmployee.Rows.Add();
-
-                    dataGridEmployee.Rows[dataGridViewRowIndex].Cells[0].Value = string.Format("{0} в должности \"{1}\"", emp, post);
-
-                    //dataGridEmployee.Rows[dataGridViewRowIndex].Tag = 
-                }
-            }
-
-            int lastRowIndex = dataGridEmployee.Rows.Add();
-
-            dataGridEmployee.Rows[lastRowIndex].Cells[0].Value = "степень востребованности производительности";
         }
 
         private static IEnumerable<string> GridToList(DataGridView grid)
