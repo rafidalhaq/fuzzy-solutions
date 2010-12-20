@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeOnPost.cs" />
+    <Compile Include="FuzzyEmployeeReplacement.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="States\AfterEmployeeAndPostsChoosenState.cs" />
     <Compile Include="EmployeeDistributionPresenter.cs" />

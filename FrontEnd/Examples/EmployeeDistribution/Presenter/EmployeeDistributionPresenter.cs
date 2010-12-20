@@ -40,23 +40,25 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 
             IList<IList<EmployeeOnPost>> replacements = new List<IList<EmployeeOnPost>>();
 
-            GetReplacements(new List<EmployeeOnPost>{etalone}, employeeOnPosts, replacements);
+            GetReplacements(new List<EmployeeOnPost> { etalone }, employeeOnPosts, replacements);
 
-            IEnumerable<FuzzySet<PerfomanceGradation>> fuzzyReplacements = GetFuzzyReplacements(replacements);
+            IEnumerable<FuzzyEmployeeReplacement> fuzzyReplacements = GetFuzzyReplacements(replacements);
 
-            IList<FuzzySet<PerfomanceGradation>> bestReplacements = GetBestFuzzyReplacements(fuzzyReplacements);
+            IList<FuzzyEmployeeReplacement> bestReplacements = GetBestFuzzyReplacements(fuzzyReplacements);
+
+            mainView.ShowResult(bestReplacements.Select(x => x.Replacement));
         }
 
-        private static IList<FuzzySet<PerfomanceGradation>> GetBestFuzzyReplacements(IEnumerable<FuzzySet<PerfomanceGradation>> fuzzyReplacements)
+        private static IList<FuzzyEmployeeReplacement> GetBestFuzzyReplacements(IEnumerable<FuzzyEmployeeReplacement> fuzzyReplacements)
         {
             return fuzzyReplacements
-                .Where(x => x.GetFitnessFunction().GetMax() == fuzzyReplacements.Max(y => y.GetFitnessFunction().GetMax()))
+                .Where(x => x.FuzzyReplacement.GetFitnessFunction().GetMax() == fuzzyReplacements.Max(y => y.FuzzyReplacement.GetFitnessFunction().GetMax()))
                 .ToList();
         }
 
-        private IEnumerable<FuzzySet<PerfomanceGradation>> GetFuzzyReplacements(IEnumerable<IList<EmployeeOnPost>> replacements)
+        private IEnumerable<FuzzyEmployeeReplacement> GetFuzzyReplacements(IEnumerable<IList<EmployeeOnPost>> replacements)
         {
-            IList<FuzzySet<PerfomanceGradation>> fuzzyReplacements = new List<FuzzySet<PerfomanceGradation>>();
+            IList<FuzzyEmployeeReplacement> fuzzyReplacements = new List<FuzzyEmployeeReplacement>();
 
             var intersectionOperation = new SimpleIntersectionOperation<PerfomanceGradation>();
 
@@ -67,19 +69,18 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
                 foreach (var employeeOnPost in replacement)
                 {
                     var fuzzySet = FuzzySet<PerfomanceGradation>.Instance();
-                    foreach (var perfomanceGradation in PerfomanceGradations)
-                    {
-                        var fitnessFunction = new SwitchFitnessFunction<PerfomanceGradation>(employeeOnPost.PerfomanceGradations);
 
+                    var fitnessFunction = new SwitchFitnessFunction<PerfomanceGradation>(employeeOnPost.PerfomanceGradations);
+                    fuzzySet.SetFitnessFunction(fitnessFunction);
+
+                    foreach (var perfomanceGradation in PerfomanceGradations)
                         fuzzySet.Add(perfomanceGradation);
-                        fuzzySet.SetFitnessFunction(fitnessFunction);
-                    }
 
                     fuzzyEmployeeOnPost.Add(fuzzySet);
                 }
 
                 var fuzzyReplacement = intersectionOperation.Operate(fuzzyEmployeeOnPost);
-                fuzzyReplacements.Add(fuzzyReplacement);
+                fuzzyReplacements.Add(new FuzzyEmployeeReplacement(fuzzyReplacement, replacement));
             }
 
             return fuzzyReplacements;
@@ -94,7 +95,7 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
             {
                 foreach (var itemLeft in itemsLeft.Where(x => x.Employee.Equals(itemsLeft.First().Employee)))
                 {
-                    var nextIterationReplacement = new List<EmployeeOnPost>(currentReplacement) {itemLeft};
+                    var nextIterationReplacement = new List<EmployeeOnPost>(currentReplacement) { itemLeft };
 
                     EmployeeOnPost empOnPost = itemLeft;
 

@@ -4,6 +4,7 @@
     {
         public AfterEmployeeAndPostsChoosenState(IMainView mainView, IEmployeeDistributionPresenter presenter) : base(mainView, presenter)
         {
+            NextState = this;
         }
 
         public override void Process()

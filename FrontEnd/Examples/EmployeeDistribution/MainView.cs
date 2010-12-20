@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using IGS.Fuzzy.Examples.EmployeeDistribution.Presenter;
 
@@ -54,6 +55,24 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution
             }
 
             return employeeOnPosts;
+        }
+
+        public void ShowResult(IEnumerable<IList<EmployeeOnPost>> result)
+        {
+            var resultText = new StringBuilder();
+
+            foreach (var replacement in result)
+            {
+                resultText.AppendLine("вариант:");
+                foreach (var employeeOnPost in replacement.Where(x => x.IsEtalone == false))
+                {
+                    resultText.AppendFormat("{0} на посту \"{1}\"", employeeOnPost.Employee.Name, employeeOnPost.Post.Name);
+                    resultText.AppendLine();
+                }
+                resultText.AppendLine();
+            }
+
+            MessageBox.Show(resultText.ToString(), @"Наилучшие распределения");
         }
 
         #endregion
