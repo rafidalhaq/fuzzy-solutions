@@ -7,9 +7,11 @@ namespace IGS.Fuzzy.FuzzySetOperations.Relations.DirectComposition
     {
         public FuzzySet<Tuple<T, T>> Operate(FuzzySet<T> first, FuzzySet<T> second)
         {
-            var resultSet = FuzzySet<Tuple<T, T>>.Instance();
+            var resultSet = FuzzySet<T>.InstanceRelation(first, second);
 
-            return null;
+            resultSet.SetFitnessFunction(x => Math.Min(first.GetWeight(x.Item1), second.GetWeight(x.Item2)));
+
+            return resultSet;
         }
     }
 }

@@ -49,9 +49,9 @@ namespace FuzzySetsOperationTests.TestBinaryOperations
 
             FuzzySet<Tuple<int, int>> algebraicSum = directComposition.Operate(firstSet, secondSet);
 
-            Assert.Equal(0.4, algebraicSum.GetWeight(new Tuple<int, int>(1, 4)));
+            Assert.Equal(0.1, algebraicSum.GetWeight(new Tuple<int, int>(1, 4)));
             Assert.Equal(0.2, algebraicSum.GetWeight(new Tuple<int, int>(2, 5)));
-            Assert.Equal(0.3, algebraicSum.GetWeight(new Tuple<int, int>(3, 6)));
+            Assert.Equal(0.2, algebraicSum.GetWeight(new Tuple<int, int>(3, 6)));
         }
     }
 }
