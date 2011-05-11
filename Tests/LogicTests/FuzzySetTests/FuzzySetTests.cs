@@ -37,7 +37,7 @@ namespace FuzzySetTests
         }
 
         [Fact]
-        public void FuzySetShouldNotGenerateEventWhenUniversalItemsCollectionWasnNotChanged()
+        public void FuzySetShouldNotGenerateEventWhenUniversalItemsCollectionWasNotChanged()
         {
             FuzzySet<int> fuzzySet = FuzzySetStubs.CreateSimpleIntFuzzySet();
 

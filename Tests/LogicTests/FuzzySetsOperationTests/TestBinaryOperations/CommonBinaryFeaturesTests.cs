@@ -1,5 +1,5 @@
 using IGS.Fuzzy.Core;
-using IGS.Fuzzy.FuzzySetOperations.Binary.Intersection;
+using IGS.Fuzzy.FuzzySetOperations.Multiple.Intersection;
 using Xunit;
 
 namespace FuzzySetsOperationTests.TestBinaryOperations

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using IGS.Fuzzy.Core.FuzzyGradation;
 
-namespace IGS.Fuzzy.Core.FuzzyGradation
+namespace IGS.Fuzzy.Comparers
 {
     public class FuzzyOrderingGradationValueResolver : IFuzzyGradationValueResolver
     {

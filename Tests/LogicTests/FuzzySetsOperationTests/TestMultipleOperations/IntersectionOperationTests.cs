@@ -1,7 +1,7 @@
 using System.Linq;
 using IGS.Fuzzy.Core;
 using IGS.Fuzzy.FuzzySetOperations;
-using IGS.Fuzzy.FuzzySetOperations.Binary.Intersection;
+using IGS.Fuzzy.FuzzySetOperations.Multiple.Intersection;
 using TestStubs;
 using Xunit;
 

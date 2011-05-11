@@ -4,7 +4,7 @@ using System.Linq;
 using IGS.Fuzzy.Core;
 using IGS.Fuzzy.Examples.EmployeeDistribution.Presenter.States;
 using IGS.Fuzzy.FitnessFunctions;
-using IGS.Fuzzy.FuzzySetOperations.Binary.Intersection;
+using IGS.Fuzzy.FuzzySetOperations.Multiple.Intersection;
 
 namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 {
@@ -36,7 +36,7 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
         public void CalculateBestReplacements(IList<EmployeeOnPost> employeeOnPostsWithEtalone)
         {
             var employeeOnPosts = employeeOnPostsWithEtalone.Where(x => x.IsEtalone == false);
-            var etalone = employeeOnPostsWithEtalone.Where(x => x.IsEtalone == true).FirstOrDefault();
+            var etalone = employeeOnPostsWithEtalone.Where(x => x.IsEtalone).FirstOrDefault();
 
             IList<IList<EmployeeOnPost>> replacements = new List<IList<EmployeeOnPost>>();
 
@@ -44,12 +44,12 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
 
             IEnumerable<FuzzyEmployeeReplacement> fuzzyReplacements = GetFuzzyReplacements(replacements);
 
-            IList<FuzzyEmployeeReplacement> bestReplacements = GetBestFuzzyReplacements(fuzzyReplacements);
+            IEnumerable<FuzzyEmployeeReplacement> bestReplacements = GetBestFuzzyReplacements(fuzzyReplacements);
 
             mainView.ShowResult(bestReplacements.Select(x => x.Replacement));
         }
 
-        private static IList<FuzzyEmployeeReplacement> GetBestFuzzyReplacements(IEnumerable<FuzzyEmployeeReplacement> fuzzyReplacements)
+        private static IEnumerable<FuzzyEmployeeReplacement> GetBestFuzzyReplacements(IEnumerable<FuzzyEmployeeReplacement> fuzzyReplacements)
         {
             return fuzzyReplacements
                 .Where(x => x.FuzzyReplacement.GetFitnessFunction().GetMax() == fuzzyReplacements.Max(y => y.FuzzyReplacement.GetFitnessFunction().GetMax()))

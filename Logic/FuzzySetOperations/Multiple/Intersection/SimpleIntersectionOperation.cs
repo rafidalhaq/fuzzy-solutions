@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using IGS.Fuzzy.Core;
-using IGS.Fuzzy.FuzzySetOperations.Multiple;
 
-namespace IGS.Fuzzy.FuzzySetOperations.Binary.Intersection
+namespace IGS.Fuzzy.FuzzySetOperations.Multiple.Intersection
 {
     public class SimpleIntersectionOperation<T> : SimpleMultipleOperationBase<T>
     {
