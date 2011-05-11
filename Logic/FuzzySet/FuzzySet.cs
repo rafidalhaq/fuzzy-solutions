@@ -16,7 +16,6 @@ namespace IGS.Fuzzy.Core
 
         private FuzzySet()
         {
-            //universalItems = new List<T>();
         }
 
         public IEnumerable<T> UniversalItems
@@ -58,6 +57,16 @@ namespace IGS.Fuzzy.Core
         public static FuzzySet<T> Instance(FuzzySet<T> fuzzySet)
         {
             return new FuzzySet<T>(fuzzySet);
+        }
+
+        public static FuzzySet<Tuple<T, T>> InstanceRelation(FuzzySet<T> first, FuzzySet<T> second)
+        {
+            var fuzzySet = new FuzzySet<Tuple<T, T>>
+                               {
+                                   universalItems = new FuzzyRelationUniversalItemsCollection<T>(first, second)
+                               };
+
+            return fuzzySet;
         }
 
         public double GetWeight(T item)

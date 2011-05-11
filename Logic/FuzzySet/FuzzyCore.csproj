@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FuzzyGradation\FuzzyCompareGradation.cs" />
+    <Compile Include="FuzzyRelationUniversalItemsCollection.cs" />
     <Compile Include="FuzzySet.cs" />
     <Compile Include="FuzzySetUniversalItemsCollection.cs" />
     <Compile Include="FuzzySetUniversalItemsException.cs" />
