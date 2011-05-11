@@ -6,7 +6,7 @@ namespace IGS.Fuzzy.Core
 {
     public class FuzzySet<T> : IEquatable<FuzzySet<T>>
     {
-        private readonly IList<T> universalItems;
+        private IUniversalItemsCollection<T> universalItems;
         private IFitnessFunction<T> fitnessFunction;
 
         private FuzzySet(FuzzySet<T> fuzzySet)
@@ -16,7 +16,7 @@ namespace IGS.Fuzzy.Core
 
         private FuzzySet()
         {
-            universalItems = new List<T>();
+            //universalItems = new List<T>();
         }
 
         public IEnumerable<T> UniversalItems
@@ -42,7 +42,12 @@ namespace IGS.Fuzzy.Core
         /// <returns>Нечёткое множество</returns>
         public static FuzzySet<T> Instance()
         {
-            return new FuzzySet<T>();
+            var fuzzySet = new FuzzySet<T>
+                               {
+                                   universalItems = new FuzzySetUniversalItemsCollection<T>()
+                               };
+
+            return fuzzySet;
         }
 
         /// <summary>
