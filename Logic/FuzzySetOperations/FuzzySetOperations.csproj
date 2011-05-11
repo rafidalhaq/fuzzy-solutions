@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Relations\DirectComposition\DirectComposition.cs" />
     <Compile Include="FuzzySetOperationException.cs" />
     <Compile Include="Multiple\SimpleMultipleOperationBase.cs" />
+    <Compile Include="Relations\IRelation.cs" />
     <Compile Include="SimpleOperationBase.cs" />
     <Compile Include="Multiple\AlgebraicComposition\SimpleAlgebraicCompositionOperation.cs" />
     <Compile Include="Binary\AlgebraicSum\SimpleAlgebraicSumOperation.cs" />

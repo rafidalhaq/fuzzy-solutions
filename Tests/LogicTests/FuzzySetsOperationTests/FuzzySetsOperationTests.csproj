@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="TestBinaryOperations\AlgebraicSumOperationTests.cs" />
     <Compile Include="TestBinaryOperations\CommonBinaryFeaturesTests.cs" />
+    <Compile Include="TestBinaryOperations\DirectCompositionTests.cs" />
     <Compile Include="TestMultipleOperations\AlgebraicCompositionOperationTests.cs" />
     <Compile Include="TestBinaryOperations\DisjunctiveSumOperationTests.cs" />
     <Compile Include="TestBinaryOperations\DifferenceOperationTests.cs" />
