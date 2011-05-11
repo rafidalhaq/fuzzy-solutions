@@ -29,7 +29,7 @@ namespace IGS.Fuzzy.FitnessFunctions
             {
                 freeRow[i] /= freeRow.Sum();
 
-                Weights.Add(ParentFuzzySet.UniversalItems[i], freeRow[i]);
+                Weights.Add(ParentFuzzySet.UniversalItems.ElementAt(i), freeRow[i]);
             }
         }
 

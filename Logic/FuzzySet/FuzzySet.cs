@@ -19,7 +19,7 @@ namespace IGS.Fuzzy.Core
             universalItems = new List<T>();
         }
 
-        public IList<T> UniversalItems
+        public IEnumerable<T> UniversalItems
         {
             get { return universalItems; }
         }
@@ -120,7 +120,7 @@ namespace IGS.Fuzzy.Core
         {
             if (UniversalItems.Contains(universalItem) == false)
             {
-                UniversalItems.Add(universalItem);
+                universalItems.Add(universalItem);
                 return true;
             }
 
