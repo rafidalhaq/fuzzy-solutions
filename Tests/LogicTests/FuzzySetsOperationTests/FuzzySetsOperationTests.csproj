@@ -56,6 +56,7 @@
     <Compile Include="TestRelationBasedOperations\DirectImageTests.cs" />
     <Compile Include="TestRelationBasedOperations\ImageTestsBase.cs" />
     <Compile Include="TestRelationBasedOperations\SubdirectImageTests.cs" />
+    <Compile Include="TestRelationBasedOperations\SuperDirectImageTests.cs" />
     <Compile Include="TestUnaryOperations\CommonUnaryFeaturesTests.cs" />
     <Compile Include="TestUnaryOperations\SupplementTests.cs" />
     <Compile Include="TestMultipleOperations\UnionOperationTests.cs" />
