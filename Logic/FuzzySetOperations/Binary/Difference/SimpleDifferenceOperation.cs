@@ -12,8 +12,8 @@ namespace IGS.Fuzzy.FuzzySetOperations.Binary.Difference
 
         protected override Func<T, double> GetFitnessFunxtion(FuzzySet<T> first, FuzzySet<T> second)
         {
-            IFitnessFunction<T> firstFitness = first.GetFitnessFunction();
-            IFitnessFunction<T> secondFitness = second.GetFitnessFunction();
+            IFitnessFunction<T> firstFitness = first.FitnessFunction;
+            IFitnessFunction<T> secondFitness = second.FitnessFunction;
 
             return x =>
                        {

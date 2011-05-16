@@ -12,7 +12,7 @@ namespace IGS.Fuzzy.FuzzySetOperations.Unary.Supplement
 
             supplement.Add(fuzzySet);
 
-            supplement.SetFitnessFunction(x => 1 - fuzzySet.GetFitnessFunction().Invoke(x));
+            supplement.SetFitnessFunction(x => 1 - fuzzySet.FitnessFunction.Invoke(x));
 
             return supplement;
         }

@@ -59,6 +59,10 @@
     <Compile Include="TestMultipleOperations\UnionOperationTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Logic\FuzzySetFitnessFunctions\FitnessFunctions.csproj">
+      <Project>{98DB42FC-A4F3-4033-BDFF-BC10821E8D4B}</Project>
+      <Name>FitnessFunctions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Logic\FuzzySetOperations\FuzzySetOperations.csproj">
       <Project>{3F228B50-30D1-4A76-BAD3-4A0259770ED9}</Project>
       <Name>FuzzySetOperations</Name>

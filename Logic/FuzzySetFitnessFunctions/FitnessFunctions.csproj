@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConstantFitnessFunction.cs" />
     <Compile Include="FitnessFunctionWithFitnessListBuilding.cs" />
     <Compile Include="OrderingComparer.cs" />
     <Compile Include="OrderingFitnessFunction.cs" />

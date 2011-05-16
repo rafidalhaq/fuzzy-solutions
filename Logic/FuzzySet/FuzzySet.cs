@@ -7,7 +7,6 @@ namespace IGS.Fuzzy.Core
     public class FuzzySet<T> : IEquatable<FuzzySet<T>>
     {
         private IUniversalItemsCollection<T> universalItems;
-        private IFitnessFunction<T> fitnessFunction;
 
         private FuzzySet(FuzzySet<T> fuzzySet)
         {
@@ -75,12 +74,12 @@ namespace IGS.Fuzzy.Core
                 throw new IndexOutOfRangeException(
                     "Универсальное множество не содержит элемента, для которого был запрошен вес");
 
-            return fitnessFunction.Invoke(item);
+            return FitnessFunction.Invoke(item);
         }
 
         public FuzzySet<T> SetFitnessFunction(IFitnessFunction<T> func)
         {
-            fitnessFunction = func;
+            FitnessFunction = func;
 
             func.ParentSet = this;
 
@@ -89,7 +88,7 @@ namespace IGS.Fuzzy.Core
 
         public FuzzySet<T> SetFitnessFunction(Func<T, double> func)
         {
-            return SetFitnessFunction(new FitnessFunction(func, this));
+            return SetFitnessFunction(new LambdaFitnessFunction(func, this));
         }
 
         public bool ItemsEquals(FuzzySet<T> other)
@@ -119,15 +118,7 @@ namespace IGS.Fuzzy.Core
 
         public FuzzySet<T> Add(FuzzySet<T> from)
         {
-            bool collectionChanged = false;
-
-            foreach (T universalItem in from.UniversalItems)
-                collectionChanged = AddItem(universalItem);
-
-            if (collectionChanged)
-                InvokeCollectionChanged();
-
-            return this;
+            return Add(from.UniversalItems);
         }
 
         private bool AddItem(T universalItem)
@@ -141,16 +132,26 @@ namespace IGS.Fuzzy.Core
             return false;
         }
 
-        public IFitnessFunction<T> GetFitnessFunction()
+        public FuzzySet<T> Add(IEnumerable<T> items)
         {
-            return fitnessFunction;
+            bool collectionChanged = false;
+
+            foreach (T universalItem in items)
+                collectionChanged = AddItem(universalItem);
+
+            if (collectionChanged)
+                InvokeCollectionChanged();
+
+            return this;
         }
+
+        public IFitnessFunction<T> FitnessFunction { get; private set; }
 
         #region Nested type: FitnessFunction
 
-        private class FitnessFunction : IFitnessFunction<T>
+        private class LambdaFitnessFunction : IFitnessFunction<T>
         {
-            public FitnessFunction(Func<T, double> func, FuzzySet<T> parentSet)
+            public LambdaFitnessFunction(Func<T, double> func, FuzzySet<T> parentSet)
             {
                 Function = func;
                 ParentSet = parentSet;

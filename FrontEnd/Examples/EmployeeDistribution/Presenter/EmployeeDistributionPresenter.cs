@@ -52,7 +52,7 @@ namespace IGS.Fuzzy.Examples.EmployeeDistribution.Presenter
         private static IEnumerable<FuzzyEmployeeReplacement> GetBestFuzzyReplacements(IEnumerable<FuzzyEmployeeReplacement> fuzzyReplacements)
         {
             return fuzzyReplacements
-                .Where(x => x.FuzzyReplacement.GetFitnessFunction().GetMax() == fuzzyReplacements.Max(y => y.FuzzyReplacement.GetFitnessFunction().GetMax()))
+                .Where(x => x.FuzzyReplacement.FitnessFunction.GetMax() == fuzzyReplacements.Max(y => y.FuzzyReplacement.FitnessFunction.GetMax()))
                 .ToList();
         }
 
