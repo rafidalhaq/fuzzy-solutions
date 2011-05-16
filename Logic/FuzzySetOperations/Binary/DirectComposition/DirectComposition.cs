@@ -1,9 +1,9 @@
 using System;
 using IGS.Fuzzy.Core;
 
-namespace IGS.Fuzzy.FuzzySetOperations.Relations.DirectComposition
+namespace IGS.Fuzzy.FuzzySetOperations.Binary.DirectComposition
 {
-    public class DirectComposition<T> : IRelation<T, Tuple<T, T>>
+    public class DirectComposition<T> : IBinaryFuzzySetOperation<T, Tuple<T, T>>
     {
         public FuzzySet<Tuple<T, T>> Operate(FuzzySet<T> first, FuzzySet<T> second)
         {

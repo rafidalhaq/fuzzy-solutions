@@ -53,6 +53,7 @@
     <Compile Include="TestMultipleOperations\CommonMultipleFeaturesTests.cs" />
     <Compile Include="TestMultipleOperations\IntersectionOperationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestRelationBasedOperations\DirectImageTests.cs" />
     <Compile Include="TestUnaryOperations\CommonUnaryFeaturesTests.cs" />
     <Compile Include="TestUnaryOperations\SupplementTests.cs" />
     <Compile Include="TestMultipleOperations\UnionOperationTests.cs" />

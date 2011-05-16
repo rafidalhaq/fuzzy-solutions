@@ -1,7 +1,7 @@
 using System;
 using IGS.Fuzzy.Core;
 using IGS.Fuzzy.FuzzySetOperations.Binary.AlgebraicSum;
-using IGS.Fuzzy.FuzzySetOperations.Relations.DirectComposition;
+using IGS.Fuzzy.FuzzySetOperations.Binary.DirectComposition;
 using Xunit;
 
 namespace FuzzySetsOperationTests.TestBinaryOperations

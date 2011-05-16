@@ -40,10 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Relations\DirectComposition\DirectComposition.cs" />
+    <Compile Include="Binary\DirectComposition\DirectComposition.cs" />
     <Compile Include="FuzzySetOperationException.cs" />
     <Compile Include="Multiple\SimpleMultipleOperationBase.cs" />
-    <Compile Include="Relations\IRelation.cs" />
     <Compile Include="SimpleOperationBase.cs" />
     <Compile Include="Multiple\AlgebraicComposition\SimpleAlgebraicCompositionOperation.cs" />
     <Compile Include="Binary\AlgebraicSum\SimpleAlgebraicSumOperation.cs" />
@@ -66,7 +65,9 @@
       <Name>FuzzyCore</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="RelationBased\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

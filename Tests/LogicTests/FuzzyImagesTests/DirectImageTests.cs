@@ -2,10 +2,10 @@
 
 namespace FuzzyImagesTests
 {
-    public class FirstTes
+    public class DirectImageTests
     {
         [Fact]
-        public void FactMethodName()
+        public void TestSimpleDirectImageOperation()
         {
 
         }

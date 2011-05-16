@@ -2,14 +2,18 @@
 
 namespace IGS.Fuzzy.FuzzySetOperations.Binary
 {
-    public interface IBinaryFuzzySetOperation<T>
+    public interface IBinaryFuzzySetOperation<T> : IBinaryFuzzySetOperation<T, T>
+    {
+    }
+
+    public interface IBinaryFuzzySetOperation<TItems, TResult>
     {
         /// <summary>
-        /// Возвращает результат конкретной бинарной операции над двумя нечёткими множествами.
+        /// Возвращает отношение над двумя нечёткими множествами.
         /// </summary>
         /// <param name="first">Первое множество</param>
         /// <param name="second">Второе множество</param>
-        /// <returns>Результирующее множество</returns>
-        FuzzySet<T> Operate(FuzzySet<T> first, FuzzySet<T> second);
+        /// <returns>Результирующее отношение</returns>
+        FuzzySet<TResult> Operate(FuzzySet<TItems> first, FuzzySet<TItems> second);
     }
 }
