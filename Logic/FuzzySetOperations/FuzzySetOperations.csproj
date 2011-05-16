@@ -44,6 +44,8 @@
     <Compile Include="FuzzySetOperationException.cs" />
     <Compile Include="Multiple\SimpleMultipleOperationBase.cs" />
     <Compile Include="RelationBased\DirectImageOperation.cs" />
+    <Compile Include="RelationBased\ImageOperationBase.cs" />
+    <Compile Include="RelationBased\SubdirectImageOperation.cs" />
     <Compile Include="SimpleOperationBase.cs" />
     <Compile Include="Multiple\AlgebraicComposition\SimpleAlgebraicCompositionOperation.cs" />
     <Compile Include="Binary\AlgebraicSum\SimpleAlgebraicSumOperation.cs" />
