@@ -1,6 +1,6 @@
-﻿namespace IGS.MathExtensions
+﻿namespace IGS.MathExtensions.Binary
 {
-    public static class MathExtensions
+    public static class BinaryExtensions
     {
         /// <summary>
         /// Returns 1 if first less or equal than second, or returns second

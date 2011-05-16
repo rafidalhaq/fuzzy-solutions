@@ -65,6 +65,10 @@
       <Project>{698750ED-B3C1-4135-BC6E-20487E7DD0BA}</Project>
       <Name>FuzzyCore</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MathExtensions\MathExtensions.csproj">
+      <Project>{79769A2F-28E8-46B9-A8E9-6A24ACDF0A97}</Project>
+      <Name>MathExtensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
