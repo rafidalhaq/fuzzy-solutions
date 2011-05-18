@@ -45,8 +45,12 @@
     <Compile Include="Multiple\SimpleMultipleOperationBase.cs" />
     <Compile Include="RelationBased\DirectImageOperation.cs" />
     <Compile Include="RelationBased\ImageOperationBase.cs" />
+    <Compile Include="RelationBased\PreimageOperationBase.cs" />
+    <Compile Include="RelationBased\PreimageOperationClassB.cs" />
+    <Compile Include="RelationBased\PreimageOperationClassC.cs" />
     <Compile Include="RelationBased\SubdirectImageOperation.cs" />
     <Compile Include="RelationBased\SuperdirectImageOperation.cs" />
+    <Compile Include="RelationBased\PreimageOperationClassA.cs" />
     <Compile Include="SimpleOperationBase.cs" />
     <Compile Include="Multiple\AlgebraicComposition\SimpleAlgebraicCompositionOperation.cs" />
     <Compile Include="Binary\AlgebraicSum\SimpleAlgebraicSumOperation.cs" />
@@ -64,6 +68,10 @@
     <Compile Include="Multiple\Union\SimpleUnionOperation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FuzzySetFitnessFunctions\FitnessFunctions.csproj">
+      <Project>{98DB42FC-A4F3-4033-BDFF-BC10821E8D4B}</Project>
+      <Name>FitnessFunctions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FuzzySet\FuzzyCore.csproj">
       <Project>{698750ED-B3C1-4135-BC6E-20487E7DD0BA}</Project>
       <Name>FuzzyCore</Name>
