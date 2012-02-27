@@ -4,3 +4,5 @@ glob:_ReSharper.*/
 glob:*/obj/*
 glob:*/bin/*
 glob:tests/*
+syntax: glob
+glob:*.pdf
