@@ -1,6 +1,5 @@
 using IGS.Fuzzy.Comparers;
 using IGS.Fuzzy.Core.FuzzyGradation;
-using IGS.Fuzzy.FitnessFunctions;
 using Xunit;
 
 namespace FuzzyComparersTests
